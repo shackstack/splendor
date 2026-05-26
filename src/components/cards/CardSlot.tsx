@@ -36,7 +36,7 @@ export function CardSlot({
   const showOverlay = selected && selection && onDismiss && onAction;
 
   return (
-    <div className="relative min-w-[72px] shrink-0">
+    <div className="relative shrink-0">
       <CardTile card={card} compact onClick={onClick} />
       {showOverlay && (
         <CardActionOverlay

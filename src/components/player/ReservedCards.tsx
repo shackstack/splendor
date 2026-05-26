@@ -46,7 +46,7 @@ export function ReservedCards({
         const showOverlay = selected && onDismiss && onAction;
 
         return (
-          <div key={`${card.id}-${index}`} className="relative w-[72px] shrink-0">
+          <div key={`${card.id}-${index}`} className="relative shrink-0">
             <CardTile
               card={card}
               compact
