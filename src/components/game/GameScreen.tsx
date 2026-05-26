@@ -17,7 +17,8 @@ export function GameScreen() {
 
   const selectedGems = useUiStore((s) => s.selectedGems);
   const selectedCard = useUiStore((s) => s.selectedCard);
-  const toggleGem = useUiStore((s) => s.toggleGem);
+  const addGemToBasket = useUiStore((s) => s.addGemToBasket);
+  const removeGemFromBasket = useUiStore((s) => s.removeGemFromBasket);
   const clearGems = useUiStore((s) => s.clearGems);
   const selectCard = useUiStore((s) => s.selectCard);
   const resetUi = useUiStore((s) => s.reset);
@@ -47,6 +48,13 @@ export function GameScreen() {
       clearGems();
     },
     [isHumanTurn, selectCard, clearGems],
+  );
+
+  const handleAddGem = useCallback(
+    (gem: Parameters<typeof addGemToBasket>[0]) => {
+      addGemToBasket(gem, state.gemBank);
+    },
+    [addGemToBasket, state.gemBank],
   );
 
   return (
@@ -90,7 +98,8 @@ export function GameScreen() {
           player={human}
           selectedGems={selectedGems}
           selectedCard={selectedCard}
-          onToggleGem={toggleGem}
+          onAddGem={handleAddGem}
+          onRemoveGem={removeGemFromBasket}
           onClearGems={clearGems}
           onClearCard={() => selectCard(null)}
           onAction={handleAction}

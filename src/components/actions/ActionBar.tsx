@@ -13,7 +13,8 @@ interface ActionBarProps {
   player: PlayerState;
   selectedGems: RegularGemType[];
   selectedCard: CardSelection | null;
-  onToggleGem: (gem: RegularGemType) => void;
+  onAddGem: (gem: RegularGemType) => void;
+  onRemoveGem: (index: number) => void;
   onClearGems: () => void;
   onClearCard: () => void;
   onAction: (action: Action) => void;
@@ -109,7 +110,8 @@ export function ActionBar({
   player,
   selectedGems,
   selectedCard,
-  onToggleGem,
+  onAddGem,
+  onRemoveGem,
   onClearGems,
   onClearCard,
   onAction,
@@ -145,7 +147,8 @@ export function ActionBar({
       <GemPicker
         bank={state.gemBank}
         selectedGems={selectedGems}
-        onToggleGem={onToggleGem}
+        onAddGem={onAddGem}
+        onRemoveGem={onRemoveGem}
         onClear={onClearGems}
       />
 
