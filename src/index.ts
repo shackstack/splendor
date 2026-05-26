@@ -117,10 +117,7 @@ function printBoard(state: GameState): void {
   }
 }
 
-function printHumanState(player: PlayerState): void {
-  console.log('\n[내 상태]');
-  console.log(`점수: ${player.score}`);
-  console.log(`보석: ${formatGemCounts(player.gems)}`);
+function printPlayerCardsAndNobles(player: PlayerState): void {
   console.log(`구매 카드 (${player.purchasedCards.length}장):`);
   if (player.purchasedCards.length === 0) {
     console.log('  없음');
@@ -135,18 +132,25 @@ function printHumanState(player: PlayerState): void {
       console.log(`  ${index + 1}. ${formatCard(card)}`);
     });
   }
-  if (player.nobles.length > 0) {
-    console.log('귀족:');
+  console.log(`귀족 (${player.nobles.length}명):`);
+  if (player.nobles.length === 0) {
+    console.log('  없음');
+  } else {
     player.nobles.forEach((noble) => console.log(`  - ${formatNoble(noble)}`));
   }
+}
+
+function printHumanState(player: PlayerState): void {
+  console.log('\n[내 상태]');
+  console.log(`점수: ${player.score}`);
+  console.log(`보석: ${formatGemCounts(player.gems)}`);
+  printPlayerCardsAndNobles(player);
 }
 
 function printBotState(player: PlayerState): void {
   console.log(`\n[${player.name}]`);
   console.log(`점수: ${player.score}`);
-  console.log(`구매 카드: ${player.purchasedCards.length}장`);
-  console.log(`예약 카드: ${player.reservedCards.length}장`);
-  console.log(`귀족: ${player.nobles.length}명`);
+  printPlayerCardsAndNobles(player);
 }
 
 async function promptAction(
