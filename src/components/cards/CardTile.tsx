@@ -51,7 +51,13 @@ export function CardTile({
         <div
           className={`flex items-center justify-between px-2 py-1 ${levelStyle.header} text-white`}
         >
-          <span className="text-[10px] font-bold">{levelStyle.label}</span>
+          <div className="flex items-center gap-1">
+            <span
+              className={`inline-flex h-5 w-5 items-center justify-center rounded-full text-[10px] font-bold ${bonusStyle.bg} ${bonusStyle.text}`}
+            >
+              {GEM_LABELS[card.bonus].slice(0, 1)}
+            </span>
+          </div>
           <PointValue
             value={card.points}
             className="text-xs font-bold"
@@ -60,15 +66,6 @@ export function CardTile({
         </div>
 
         <div className="flex flex-1 flex-col gap-1 bg-slate-800 p-2">
-          <div className="flex items-center gap-1">
-            <span
-              className={`inline-flex h-5 w-5 items-center justify-center rounded-full text-[10px] font-bold ${bonusStyle.bg} ${bonusStyle.text}`}
-            >
-              {GEM_LABELS[card.bonus].slice(0, 1)}
-            </span>
-            <span className="text-[10px] text-slate-400">보너스</span>
-          </div>
-
           <div className="flex flex-wrap gap-0.5">
             {REGULAR_GEM_TYPES.filter((gem) => (card.cost[gem] ?? 0) > 0).map(
               (gem) => {
