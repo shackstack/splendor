@@ -2,6 +2,7 @@ import { CardLevelRow } from './CardLevelRow';
 import { CARD_LEVELS } from '../../game/logic/constants';
 import type { CardSelection } from '../../store/uiStore';
 import type { Action, GameState } from '../../types';
+import type { Card } from '../../types/card';
 
 interface CardBoardProps {
   state: GameState;
@@ -13,6 +14,7 @@ interface CardBoardProps {
     reserveAction: Action | null;
     purchaseAction: Action | null;
   };
+  canAffordCard?: (card: Card) => boolean;
   interactive: boolean;
 }
 
@@ -23,6 +25,7 @@ export function CardBoard({
   onDismissCard,
   onAction,
   getCardActions,
+  canAffordCard,
   interactive,
 }: CardBoardProps) {
   return (
@@ -42,6 +45,7 @@ export function CardBoard({
             onDismiss={onDismissCard}
             onAction={onAction}
             getCardActions={getCardActions}
+            canAffordCard={canAffordCard}
             interactive={interactive}
           />
         ))}

@@ -14,6 +14,7 @@ interface ReservedCardsProps {
     reserveAction: Action | null;
     purchaseAction: Action | null;
   };
+  canAffordCard?: (card: Card) => boolean;
   interactive?: boolean;
 }
 
@@ -31,6 +32,7 @@ export function ReservedCards({
   onDismiss,
   onAction,
   getCardActions,
+  canAffordCard,
   interactive = false,
 }: ReservedCardsProps) {
   if (cards.length === 0) {
@@ -50,6 +52,8 @@ export function ReservedCards({
             <CardTile
               card={card}
               compact
+              selected={selected}
+              purchasable={interactive && !!canAffordCard?.(card)}
               onClick={
                 interactive && onSelectCard
                   ? () => onSelectCard(selection)

@@ -9,7 +9,9 @@ import { getHumanPlayer } from '../../game/logic/state-access';
 import { useGameStore } from '../../store/gameStore';
 import { useUiStore } from '../../store/uiStore';
 import { getCardActions } from '../../utils/cardActions';
+import { canAffordCard as checkCanAffordCard } from '../../utils/cardAffordability';
 import type { Action } from '../../types';
+import type { Card } from '../../types/card';
 import type { CardSelection } from '../../store/uiStore';
 
 export function GameScreen() {
@@ -68,6 +70,11 @@ export function GameScreen() {
     [state, human.id],
   );
 
+  const canAffordCard = useCallback(
+    (card: Card) => checkCanAffordCard(human, card),
+    [human],
+  );
+
   return (
     <div className="flex min-h-dvh flex-col">
       <div className="flex flex-1 flex-col gap-3 overflow-y-auto px-4 py-4 pb-2">
@@ -94,6 +101,7 @@ export function GameScreen() {
           onDismissCard={handleDismissCard}
           onAction={handleAction}
           getCardActions={resolveCardActions}
+          canAffordCard={canAffordCard}
           interactive={isHumanTurn}
         />
 
@@ -105,6 +113,7 @@ export function GameScreen() {
           onDismissCard={handleDismissCard}
           onAction={handleAction}
           getCardActions={resolveCardActions}
+          canAffordCard={canAffordCard}
           interactive={isHumanTurn}
         />
       </div>

@@ -5,6 +5,7 @@ import { PlayerSummary } from './PlayerSummary';
 import { ReservedCards } from './ReservedCards';
 import type { CardSelection } from '../../store/uiStore';
 import type { Action } from '../../types';
+import type { Card } from '../../types/card';
 import type { PlayerState } from '../../types/player';
 
 interface PlayerPanelProps {
@@ -18,6 +19,7 @@ interface PlayerPanelProps {
     reserveAction: Action | null;
     purchaseAction: Action | null;
   };
+  canAffordCard?: (card: Card) => boolean;
   interactive: boolean;
 }
 
@@ -29,6 +31,7 @@ export function PlayerPanel({
   onDismissCard,
   onAction,
   getCardActions,
+  canAffordCard,
   interactive,
 }: PlayerPanelProps) {
   return (
@@ -61,6 +64,7 @@ export function PlayerPanel({
             onDismiss={onDismissCard}
             onAction={onAction}
             getCardActions={getCardActions}
+            canAffordCard={canAffordCard}
             interactive={interactive}
           />
         </div>

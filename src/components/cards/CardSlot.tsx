@@ -7,6 +7,7 @@ import type { Card } from '../../types/card';
 interface CardSlotProps {
   card: Card | null;
   selected?: boolean;
+  purchasable?: boolean;
   selection?: CardSelection;
   onClick?: () => void;
   onDismiss?: () => void;
@@ -18,6 +19,7 @@ interface CardSlotProps {
 export function CardSlot({
   card,
   selected,
+  purchasable = false,
   selection,
   onClick,
   onDismiss,
@@ -37,7 +39,13 @@ export function CardSlot({
 
   return (
     <div className="relative shrink-0">
-      <CardTile card={card} compact onClick={onClick} />
+      <CardTile
+        card={card}
+        compact
+        selected={selected}
+        purchasable={purchasable}
+        onClick={onClick}
+      />
       {showOverlay && (
         <CardActionOverlay
           showReserve={selection.kind !== 'reserved'}

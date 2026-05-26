@@ -3,6 +3,7 @@ import { GemBank } from '../gems/GemBank';
 import { NobleRow } from './NobleRow';
 import type { CardSelection } from '../../store/uiStore';
 import type { Action, GameState } from '../../types';
+import type { Card } from '../../types/card';
 
 interface BoardAreaProps {
   state: GameState;
@@ -14,6 +15,7 @@ interface BoardAreaProps {
     reserveAction: Action | null;
     purchaseAction: Action | null;
   };
+  canAffordCard?: (card: Card) => boolean;
   interactive: boolean;
 }
 
@@ -24,6 +26,7 @@ export function BoardArea({
   onDismissCard,
   onAction,
   getCardActions,
+  canAffordCard,
   interactive,
 }: BoardAreaProps) {
   return (
@@ -37,6 +40,7 @@ export function BoardArea({
         onDismissCard={onDismissCard}
         onAction={onAction}
         getCardActions={getCardActions}
+        canAffordCard={canAffordCard}
         interactive={interactive}
       />
     </div>

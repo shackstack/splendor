@@ -3,7 +3,7 @@ import { DeckPile } from '../cards/DeckPile';
 import { CARD_LEVEL_STYLES } from '../../constants/theme';
 import type { CardSelection } from '../../store/uiStore';
 import type { Action } from '../../types';
-import type { BoardSlot, CardLevel } from '../../types/card';
+import type { BoardSlot, Card, CardLevel } from '../../types/card';
 
 interface CardLevelRowProps {
   level: CardLevel;
@@ -17,6 +17,7 @@ interface CardLevelRowProps {
     reserveAction: Action | null;
     purchaseAction: Action | null;
   };
+  canAffordCard?: (card: Card) => boolean;
   interactive: boolean;
 }
 
@@ -41,6 +42,7 @@ export function CardLevelRow({
   onDismiss,
   onAction,
   getCardActions,
+  canAffordCard,
   interactive,
 }: CardLevelRowProps) {
   const style = CARD_LEVEL_STYLES[level];
@@ -82,6 +84,7 @@ export function CardLevelRow({
               key={slotIndex}
               card={slot.card}
               selected={selected}
+              purchasable={interactive && !!slot.card && !!canAffordCard?.(slot.card)}
               selection={selected ? boardSelection : undefined}
               onClick={
                 interactive && slot.card

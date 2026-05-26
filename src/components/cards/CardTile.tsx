@@ -1,31 +1,50 @@
-import { CARD_LEVEL_STYLES, GEM_LABELS, GEM_STYLES } from '../../constants/theme';
-import type { Card } from '../../types/card';
-import { REGULAR_GEM_TYPES } from '../../types/gems';
+import {
+  CARD_LEVEL_STYLES,
+  GEM_LABELS,
+  GEM_STYLES,
+} from "../../constants/theme";
+import type { Card } from "../../types/card";
+import { REGULAR_GEM_TYPES } from "../../types/gems";
 
 interface CardTileProps {
   card: Card;
   selected?: boolean;
   compact?: boolean;
+  purchasable?: boolean;
   onClick?: () => void;
 }
 
-export function CardTile({ card, selected = false, compact = false, onClick }: CardTileProps) {
+export function CardTile({
+  card,
+  selected = false,
+  compact = false,
+  purchasable = false,
+  onClick,
+}: CardTileProps) {
   const levelStyle = CARD_LEVEL_STYLES[card.level];
   const bonusStyle = GEM_STYLES[card.bonus];
-  const Component = onClick ? 'button' : 'div';
+  const Component = onClick ? "button" : "div";
+  const showPurchasableGlow = purchasable && !selected;
 
   return (
-    <Component
-      type={onClick ? 'button' : undefined}
-      onClick={onClick}
-      className={[
-        'flex w-full flex-col overflow-hidden rounded-lg border-2 text-left shadow-md',
-        levelStyle.border,
-        selected ? 'ring-2 ring-white ring-offset-2 ring-offset-slate-900' : '',
-        onClick ? 'active:scale-[0.98]' : '',
-        compact ? 'min-h-[112px] min-w-[100px]' : 'min-w-[80px]',
-      ].join(' ')}
-    >
+    <div className="relative shrink-0">
+      {showPurchasableGlow && (
+        <>
+          <div className="animated-border-box-glow" aria-hidden />
+          <div className="animated-border-box" aria-hidden />
+        </>
+      )}
+      <Component
+        type={onClick ? "button" : undefined}
+        onClick={onClick}
+        className={[
+          "relative z-[1] flex w-full flex-col overflow-hidden rounded-lg border-2 text-left shadow-md",
+          levelStyle.border,
+          selected ? "ring-2 ring-white ring-offset-2 ring-offset-slate-900" : "",
+          onClick ? "active:scale-[0.98]" : "",
+          compact ? "min-h-[112px] min-w-[100px]" : "min-w-[80px]",
+        ].join(" ")}
+      >
       <div
         className={`flex items-center justify-between px-2 py-1 ${levelStyle.header} text-white`}
       >
@@ -44,19 +63,22 @@ export function CardTile({ card, selected = false, compact = false, onClick }: C
         </div>
 
         <div className="flex flex-wrap gap-0.5">
-          {REGULAR_GEM_TYPES.filter((gem) => (card.cost[gem] ?? 0) > 0).map((gem) => {
-            const style = GEM_STYLES[gem];
-            return (
-              <span
-                key={gem}
-                className={`rounded px-1 py-0.5 text-[10px] font-semibold ${style.bg} ${style.text}`}
-              >
-                {card.cost[gem]}
-              </span>
-            );
-          })}
+          {REGULAR_GEM_TYPES.filter((gem) => (card.cost[gem] ?? 0) > 0).map(
+            (gem) => {
+              const style = GEM_STYLES[gem];
+              return (
+                <span
+                  key={gem}
+                  className={`rounded px-1 py-0.5 text-[10px] font-semibold ${style.bg} ${style.text}`}
+                >
+                  {card.cost[gem]}
+                </span>
+              );
+            }
+          )}
         </div>
-      </div>
-    </Component>
+        </div>
+      </Component>
+    </div>
   );
 }
