@@ -9,6 +9,7 @@ import {
   getValidActions,
   initGame,
 } from './game/logic';
+import { getHumanPlayer } from './game/logic/state-access';
 import { CARD_LEVELS } from './game/logic/constants';
 import { getGemCount } from './game/logic/gems';
 import type {
@@ -176,16 +177,12 @@ function printTurnResult(action: Action, state: GameState, player: PlayerState):
   console.log(`\n>> ${player.name}: ${describeAction(state, player, action)}`);
 }
 
-async function runTurn(
-  rl: readline.Interface,
-  state: GameState,
-  human: PlayerState,
-): Promise<GameState> {
+async function runTurn(rl: readline.Interface, state: GameState): Promise<GameState> {
   const current = state.players[state.currentPlayerIndex];
   printDivider(`턴 ${state.turnNumber} - ${current.name}`);
 
   printBoard(state);
-  printHumanState(human);
+  printHumanState(getHumanPlayer(state));
   state.players.filter((player) => player.isBot).forEach(printBotState);
 
   let action: Action;
@@ -230,18 +227,14 @@ function printGameResult(state: GameState): void {
 async function main(): Promise<void> {
   const rl = readline.createInterface({ input, output });
   let state = initGame(2);
-  const human = state.players.find((player) => !player.isBot);
-
-  if (!human) {
-    throw new Error('인간 플레이어를 찾을 수 없습니다.');
-  }
+  const human = getHumanPlayer(state);
 
   console.log('스플렌더 콘솔 게임');
   console.log(`${human.name} vs ${state.players.find((p) => p.isBot)?.name ?? 'Bot'}`);
 
   try {
     while (state.phase !== 'finished') {
-      state = await runTurn(rl, state, human);
+      state = await runTurn(rl, state);
     }
     printGameResult(state);
   } finally {

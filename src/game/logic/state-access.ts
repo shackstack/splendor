@@ -25,3 +25,11 @@ export function resolveCardFromSource(state: GameState, player: PlayerState, sou
   }
   return player.reservedCards[source.index] ?? null;
 }
+
+export function getHumanPlayer(state: GameState): PlayerState {
+  const human = state.players.find((player) => !player.isBot);
+  if (!human) {
+    throw new Error('인간 플레이어를 찾을 수 없습니다.');
+  }
+  return human;
+}
