@@ -1586,6 +1586,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lucide-react@npm:^1.16.0":
+  version: 1.16.0
+  resolution: "lucide-react@npm:1.16.0"
+  peerDependencies:
+    react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
+  checksum: 10c0/d1c4b7f1abdc8b5c729a5bd74d875f0b0db732b2e8d0cc8c76f9e167818b81a6b246a64986ab2fc1ae74cf9f8d16ce2cefe98fe5a6420b31f4fd6742b3181d5a
+  languageName: node
+  linkType: hard
+
 "magic-string@npm:^0.30.17, magic-string@npm:^0.30.21":
   version: 0.30.21
   resolution: "magic-string@npm:0.30.21"
@@ -1909,6 +1918,7 @@ __metadata:
     "@types/react": "npm:^19.2.15"
     "@types/react-dom": "npm:^19.2.3"
     "@vitejs/plugin-react": "npm:^6.0.2"
+    lucide-react: "npm:^1.16.0"
     react: "npm:^19.2.6"
     react-dom: "npm:^19.2.6"
     tailwindcss: "npm:^4.3.0"

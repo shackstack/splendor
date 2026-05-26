@@ -1,3 +1,5 @@
+import { BookmarkPlus, ShoppingCart } from 'lucide-react';
+
 interface CardActionOverlayProps {
   showReserve: boolean;
   showPurchase: boolean;
@@ -19,32 +21,34 @@ export function CardActionOverlay({
 }: CardActionOverlayProps) {
   return (
     <div
-      className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-1.5 rounded-lg bg-black/70 p-2"
+      className="absolute inset-0 z-10 flex items-center justify-center rounded-lg bg-black/70 p-2"
       onClick={onDismiss}
       role="presentation"
     >
       <div
-        className="flex w-full flex-col gap-1.5"
+        className="flex items-center gap-2"
         onClick={(e) => e.stopPropagation()}
       >
         {showReserve && (
           <button
             type="button"
+            aria-label="예약"
             disabled={!reserveEnabled}
             onClick={onReserve}
-            className="min-h-9 w-full rounded-md bg-purple-600 px-2 py-1.5 text-xs font-semibold text-white disabled:opacity-40 active:bg-purple-700"
+            className="flex h-8 w-8 items-center justify-center rounded-full bg-purple-600 text-white disabled:opacity-40 active:bg-purple-700"
           >
-            예약
+            <BookmarkPlus size={16} strokeWidth={2.5} />
           </button>
         )}
         {showPurchase && (
           <button
             type="button"
+            aria-label="구매"
             disabled={!purchaseEnabled}
             onClick={onPurchase}
-            className="min-h-9 w-full rounded-md bg-emerald-600 px-2 py-1.5 text-xs font-semibold text-white disabled:opacity-40 active:bg-emerald-700"
+            className="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-600 text-white disabled:opacity-40 active:bg-emerald-700"
           >
-            구매
+            <ShoppingCart size={16} strokeWidth={2.5} />
           </button>
         )}
       </div>
