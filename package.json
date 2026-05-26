@@ -1,0 +1,14 @@
+{
+  "name": "splendor-cursor",
+  "private": true,
+  "packageManager": "yarn@4.9.1",
+  "type": "module",
+  "scripts": {
+    "start": "tsx src/index.ts",
+    "play": "tsx src/index.ts"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3"
+  }
+}
