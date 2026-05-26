@@ -1,12 +1,18 @@
 import { CardLevelRow } from './CardLevelRow';
 import { CARD_LEVELS } from '../../game/logic/constants';
 import type { CardSelection } from '../../store/uiStore';
-import type { GameState } from '../../types/game';
+import type { Action, GameState } from '../../types';
 
 interface CardBoardProps {
   state: GameState;
   selectedCard: CardSelection | null;
   onSelectCard: (source: CardSelection) => void;
+  onDismissCard: () => void;
+  onAction: (action: Action) => void;
+  getCardActions: (selection: CardSelection) => {
+    reserveAction: Action | null;
+    purchaseAction: Action | null;
+  };
   interactive: boolean;
 }
 
@@ -14,6 +20,9 @@ export function CardBoard({
   state,
   selectedCard,
   onSelectCard,
+  onDismissCard,
+  onAction,
+  getCardActions,
   interactive,
 }: CardBoardProps) {
   return (
@@ -30,6 +39,9 @@ export function CardBoard({
             deckCount={state.decks[level].length}
             selectedCard={selectedCard}
             onSelectCard={onSelectCard}
+            onDismiss={onDismissCard}
+            onAction={onAction}
+            getCardActions={getCardActions}
             interactive={interactive}
           />
         ))}

@@ -1,13 +1,30 @@
+import { CardActionOverlay } from './CardActionOverlay';
 import { CardTile } from './CardTile';
+import type { CardSelection } from '../../store/uiStore';
+import type { Action } from '../../types';
 import type { Card } from '../../types/card';
 
 interface CardSlotProps {
   card: Card | null;
   selected?: boolean;
+  selection?: CardSelection;
   onClick?: () => void;
+  onDismiss?: () => void;
+  onAction?: (action: Action) => void;
+  reserveAction?: Action | null;
+  purchaseAction?: Action | null;
 }
 
-export function CardSlot({ card, selected, onClick }: CardSlotProps) {
+export function CardSlot({
+  card,
+  selected,
+  selection,
+  onClick,
+  onDismiss,
+  onAction,
+  reserveAction,
+  purchaseAction,
+}: CardSlotProps) {
   if (!card) {
     return (
       <div className="flex min-h-[88px] min-w-[72px] items-center justify-center rounded-lg border border-dashed border-slate-600 bg-slate-800/40">
@@ -16,5 +33,22 @@ export function CardSlot({ card, selected, onClick }: CardSlotProps) {
     );
   }
 
-  return <CardTile card={card} selected={selected} compact onClick={onClick} />;
+  const showOverlay = selected && selection && onDismiss && onAction;
+
+  return (
+    <div className="relative min-w-[72px] shrink-0">
+      <CardTile card={card} compact onClick={onClick} />
+      {showOverlay && (
+        <CardActionOverlay
+          showReserve={selection.kind !== 'reserved'}
+          showPurchase={selection.kind !== 'deck'}
+          reserveEnabled={!!reserveAction}
+          purchaseEnabled={!!purchaseAction}
+          onReserve={() => reserveAction && onAction(reserveAction)}
+          onPurchase={() => purchaseAction && onAction(purchaseAction)}
+          onDismiss={onDismiss}
+        />
+      )}
+    </div>
+  );
 }

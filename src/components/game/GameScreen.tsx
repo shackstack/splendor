@@ -8,7 +8,9 @@ import { PlayerPanel } from '../player/PlayerPanel';
 import { getHumanPlayer } from '../../game/logic/state-access';
 import { useGameStore } from '../../store/gameStore';
 import { useUiStore } from '../../store/uiStore';
+import { getCardActions } from '../../utils/cardActions';
 import type { Action } from '../../types';
+import type { CardSelection } from '../../store/uiStore';
 
 export function GameScreen() {
   const state = useGameStore((s) => s.state)!;
@@ -42,7 +44,7 @@ export function GameScreen() {
   }, [reset, resetUi]);
 
   const handleSelectCard = useCallback(
-    (source: Parameters<typeof selectCard>[0]) => {
+    (source: CardSelection) => {
       if (!isHumanTurn) return;
       selectCard(source);
       clearGems();
@@ -50,11 +52,20 @@ export function GameScreen() {
     [isHumanTurn, selectCard, clearGems],
   );
 
+  const handleDismissCard = useCallback(() => {
+    selectCard(null);
+  }, [selectCard]);
+
   const handleAddGem = useCallback(
     (gem: Parameters<typeof addGemToBasket>[0]) => {
       addGemToBasket(gem, state.gemBank);
     },
     [addGemToBasket, state.gemBank],
+  );
+
+  const resolveCardActions = useCallback(
+    (selection: CardSelection) => getCardActions(state, human.id, selection),
+    [state, human.id],
   );
 
   return (
@@ -80,6 +91,9 @@ export function GameScreen() {
           state={state}
           selectedCard={selectedCard}
           onSelectCard={handleSelectCard}
+          onDismissCard={handleDismissCard}
+          onAction={handleAction}
+          getCardActions={resolveCardActions}
           interactive={isHumanTurn}
         />
 
@@ -88,6 +102,9 @@ export function GameScreen() {
           isActive={isHumanTurn}
           selectedCard={selectedCard}
           onSelectCard={handleSelectCard}
+          onDismissCard={handleDismissCard}
+          onAction={handleAction}
+          getCardActions={resolveCardActions}
           interactive={isHumanTurn}
         />
       </div>
@@ -97,11 +114,9 @@ export function GameScreen() {
           state={state}
           player={human}
           selectedGems={selectedGems}
-          selectedCard={selectedCard}
           onAddGem={handleAddGem}
           onRemoveGem={removeGemFromBasket}
           onClearGems={clearGems}
-          onClearCard={() => selectCard(null)}
           onAction={handleAction}
         />
       )}

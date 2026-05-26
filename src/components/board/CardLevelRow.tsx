@@ -2,6 +2,7 @@ import { CardSlot } from '../cards/CardSlot';
 import { DeckPile } from '../cards/DeckPile';
 import { CARD_LEVEL_STYLES } from '../../constants/theme';
 import type { CardSelection } from '../../store/uiStore';
+import type { Action } from '../../types';
 import type { BoardSlot, CardLevel } from '../../types/card';
 
 interface CardLevelRowProps {
@@ -10,6 +11,12 @@ interface CardLevelRowProps {
   deckCount: number;
   selectedCard: CardSelection | null;
   onSelectCard: (source: CardSelection) => void;
+  onDismiss: () => void;
+  onAction: (action: Action) => void;
+  getCardActions: (selection: CardSelection) => {
+    reserveAction: Action | null;
+    purchaseAction: Action | null;
+  };
   interactive: boolean;
 }
 
@@ -31,9 +38,15 @@ export function CardLevelRow({
   deckCount,
   selectedCard,
   onSelectCard,
+  onDismiss,
+  onAction,
+  getCardActions,
   interactive,
 }: CardLevelRowProps) {
   const style = CARD_LEVEL_STYLES[level];
+  const deckSelection: CardSelection = { kind: 'deck', level };
+  const deckSelected = isSameSelection(selectedCard, deckSelection);
+  const deckActions = deckSelected ? getCardActions(deckSelection) : null;
 
   return (
     <div className="flex flex-col gap-1.5">
@@ -44,29 +57,44 @@ export function CardLevelRow({
         <DeckPile
           level={level}
           count={deckCount}
-          selected={isSameSelection(selectedCard, { kind: 'deck', level })}
+          selected={deckSelected}
+          selection={deckSelected ? deckSelection : undefined}
           onClick={
             interactive
-              ? () => onSelectCard({ kind: 'deck', level })
+              ? () => onSelectCard(deckSelection)
               : undefined
           }
+          onDismiss={interactive ? onDismiss : undefined}
+          onAction={interactive ? onAction : undefined}
+          reserveAction={deckActions?.reserveAction}
         />
-        {slots.map((slot, slotIndex) => (
-          <CardSlot
-            key={slotIndex}
-            card={slot.card}
-            selected={isSameSelection(selectedCard, {
-              kind: 'board',
-              level,
-              slotIndex,
-            })}
-            onClick={
-              interactive && slot.card
-                ? () => onSelectCard({ kind: 'board', level, slotIndex })
-                : undefined
-            }
-          />
-        ))}
+        {slots.map((slot, slotIndex) => {
+          const boardSelection: CardSelection = {
+            kind: 'board',
+            level,
+            slotIndex,
+          };
+          const selected = isSameSelection(selectedCard, boardSelection);
+          const actions = selected ? getCardActions(boardSelection) : null;
+
+          return (
+            <CardSlot
+              key={slotIndex}
+              card={slot.card}
+              selected={selected}
+              selection={selected ? boardSelection : undefined}
+              onClick={
+                interactive && slot.card
+                  ? () => onSelectCard(boardSelection)
+                  : undefined
+              }
+              onDismiss={interactive ? onDismiss : undefined}
+              onAction={interactive ? onAction : undefined}
+              reserveAction={actions?.reserveAction}
+              purchaseAction={actions?.purchaseAction}
+            />
+          );
+        })}
       </div>
     </div>
   );

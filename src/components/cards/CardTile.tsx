@@ -23,7 +23,7 @@ export function CardTile({ card, selected = false, compact = false, onClick }: C
         levelStyle.border,
         selected ? 'ring-2 ring-white ring-offset-2 ring-offset-slate-900' : '',
         onClick ? 'active:scale-[0.98]' : '',
-        compact ? 'min-w-[72px]' : 'min-w-[80px]',
+        compact ? 'min-h-[112px] min-w-[100px]' : 'min-w-[80px]',
       ].join(' ')}
     >
       <div

@@ -4,6 +4,7 @@ import { GemHand } from '../gems/GemHand';
 import { PlayerSummary } from './PlayerSummary';
 import { ReservedCards } from './ReservedCards';
 import type { CardSelection } from '../../store/uiStore';
+import type { Action } from '../../types';
 import type { PlayerState } from '../../types/player';
 
 interface PlayerPanelProps {
@@ -11,6 +12,12 @@ interface PlayerPanelProps {
   isActive: boolean;
   selectedCard: CardSelection | null;
   onSelectCard: (source: CardSelection) => void;
+  onDismissCard?: () => void;
+  onAction?: (action: Action) => void;
+  getCardActions?: (selection: CardSelection) => {
+    reserveAction: Action | null;
+    purchaseAction: Action | null;
+  };
   interactive: boolean;
 }
 
@@ -19,6 +26,9 @@ export function PlayerPanel({
   isActive,
   selectedCard,
   onSelectCard,
+  onDismissCard,
+  onAction,
+  getCardActions,
   interactive,
 }: PlayerPanelProps) {
   return (
@@ -48,6 +58,9 @@ export function PlayerPanel({
             cards={player.reservedCards}
             selectedCard={selectedCard}
             onSelectCard={onSelectCard}
+            onDismiss={onDismissCard}
+            onAction={onAction}
+            getCardActions={getCardActions}
             interactive={interactive}
           />
         </div>
