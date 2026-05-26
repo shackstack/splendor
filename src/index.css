@@ -1,0 +1,25 @@
+@import 'tailwindcss';
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  body {
+    @apply min-h-dvh bg-slate-900 text-slate-100 antialiased;
+    padding: env(safe-area-inset-top) env(safe-area-inset-right)
+      env(safe-area-inset-bottom) env(safe-area-inset-left);
+    overscroll-behavior: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  #root {
+    @apply min-h-dvh;
+  }
+
+  button,
+  [role='button'] {
+    touch-action: manipulation;
+  }
+}
