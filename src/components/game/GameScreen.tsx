@@ -4,7 +4,6 @@ import { ActionBar } from '../actions/ActionBar';
 import { BoardArea } from '../board/BoardArea';
 import { GameHeader } from './GameHeader';
 import { GameOverModal } from '../overlays/GameOverModal';
-import { OpponentPanel } from '../player/OpponentPanel';
 import { PlayerPanel } from '../player/PlayerPanel';
 import { getHumanPlayer } from '../../game/logic/state-access';
 import { useGameStore } from '../../store/gameStore';
@@ -61,7 +60,13 @@ export function GameScreen() {
           botScore={bot.score}
         />
 
-        <OpponentPanel player={bot} isActive={!isHumanTurn && state.phase !== 'finished'} />
+        <PlayerPanel
+          player={bot}
+          isActive={!isHumanTurn && state.phase !== 'finished'}
+          selectedCard={null}
+          onSelectCard={() => {}}
+          interactive={false}
+        />
 
         <BoardArea
           state={state}
