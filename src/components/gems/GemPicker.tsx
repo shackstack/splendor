@@ -1,6 +1,7 @@
 import { GemBasket } from './GemBasket';
 import { GemChip } from './GemChip';
 import { GEM_LABELS, REGULAR_GEM_ORDER } from '../../constants/theme';
+import { useGemDragToBasket } from '../../hooks/useGemDragToBasket';
 import { canAddGemToBasket } from '../../utils/gemBasket';
 import { getGemCount } from '../../game/logic/gems';
 import type { GemCounts, RegularGemType } from '../../types/gems';
@@ -20,6 +21,9 @@ export function GemPicker({
   onRemoveGem,
   onClear,
 }: GemPickerProps) {
+  const { basketRef, isOverBasket, getGemPointerHandlers, consumeSuppressClick } =
+    useGemDragToBasket(onAddGem);
+
   return (
     <div className="space-y-3">
       <div>
@@ -32,6 +36,8 @@ export function GemPicker({
             const canAdd = canAddGemToBasket(selectedGems, gem, bank);
             const disabled = bankCount === 0 || !canAdd;
 
+            const pointerHandlers = disabled ? {} : getGemPointerHandlers(gem);
+
             return (
               <div key={gem} className="flex flex-col items-center gap-0.5">
                 <GemChip
@@ -39,7 +45,15 @@ export function GemPicker({
                   count={bankCount}
                   draggable={!disabled}
                   disabled={disabled}
-                  onClick={disabled ? undefined : () => onAddGem(gem)}
+                  onClick={
+                    disabled
+                      ? undefined
+                      : () => {
+                          if (consumeSuppressClick()) return;
+                          onAddGem(gem);
+                        }
+                  }
+                  {...pointerHandlers}
                 />
                 <span className="text-[9px] text-slate-500">{GEM_LABELS[gem]}</span>
                 {bankCount >= 4 && selectedGems.length <= 1 && (
@@ -53,7 +67,8 @@ export function GemPicker({
 
       <GemBasket
         gems={selectedGems}
-        onDropGem={onAddGem}
+        basketRef={basketRef}
+        isDropTarget={isOverBasket}
         onRemoveGem={onRemoveGem}
         onClear={onClear}
       />

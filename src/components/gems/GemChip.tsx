@@ -1,7 +1,4 @@
-import type { DragEvent } from 'react';
-
 import { GEM_LABELS, GEM_STYLES } from '../../constants/theme';
-import { GEM_DRAG_TYPE } from '../../utils/gemBasket';
 import type { GemType } from '../../types/gems';
 
 interface GemChipProps {
@@ -13,7 +10,10 @@ interface GemChipProps {
   draggable?: boolean;
   showCount?: boolean;
   onClick?: () => void;
-  onDragStart?: (event: DragEvent) => void;
+  onPointerDown?: (event: React.PointerEvent) => void;
+  onPointerMove?: (event: React.PointerEvent) => void;
+  onPointerUp?: (event: React.PointerEvent) => void;
+  onPointerCancel?: (event: React.PointerEvent) => void;
 }
 
 export function GemChip({
@@ -25,26 +25,25 @@ export function GemChip({
   draggable = false,
   showCount = true,
   onClick,
-  onDragStart,
+  onPointerDown,
+  onPointerMove,
+  onPointerUp,
+  onPointerCancel,
 }: GemChipProps) {
   const style = GEM_STYLES[gem];
   const sizeClass = size === 'sm' ? 'h-7 min-w-7 px-1.5 text-xs' : 'h-9 min-w-9 px-2 text-sm';
   const interactive = Boolean(onClick) || draggable;
   const Component = onClick ? 'button' : 'div';
 
-  const handleDragStart = (event: DragEvent) => {
-    event.dataTransfer.setData(GEM_DRAG_TYPE, gem);
-    event.dataTransfer.effectAllowed = 'copy';
-    onDragStart?.(event);
-  };
-
   return (
     <Component
       type={onClick ? 'button' : undefined}
       disabled={disabled}
-      draggable={draggable && !disabled}
       onClick={onClick}
-      onDragStart={draggable ? handleDragStart : undefined}
+      onPointerDown={draggable && !disabled ? onPointerDown : undefined}
+      onPointerMove={draggable && !disabled ? onPointerMove : undefined}
+      onPointerUp={draggable && !disabled ? onPointerUp : undefined}
+      onPointerCancel={draggable && !disabled ? onPointerCancel : undefined}
       className={[
         'inline-flex items-center justify-center gap-1 rounded-full font-semibold ring-2',
         sizeClass,

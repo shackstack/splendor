@@ -23,5 +23,3 @@ export function canAddGemToBasket(
 
   return true;
 }
-
-export const GEM_DRAG_TYPE = 'application/x-splendor-gem';

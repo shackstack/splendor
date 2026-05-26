@@ -1,36 +1,26 @@
+import type { Ref } from 'react';
+
 import { GemChip } from './GemChip';
 import { GEM_LABELS } from '../../constants/theme';
-import { GEM_DRAG_TYPE } from '../../utils/gemBasket';
 import type { RegularGemType } from '../../types/gems';
 
 interface GemBasketProps {
   gems: RegularGemType[];
-  onDropGem: (gem: RegularGemType) => void;
+  basketRef?: Ref<HTMLDivElement>;
+  isDropTarget?: boolean;
   onRemoveGem: (index: number) => void;
   onClear: () => void;
 }
 
-export function GemBasket({ gems, onDropGem, onRemoveGem, onClear }: GemBasketProps) {
-  const handleDragOver = (event: React.DragEvent) => {
-    event.preventDefault();
-    event.dataTransfer.dropEffect = 'copy';
-  };
-
-  const handleDrop = (event: React.DragEvent) => {
-    event.preventDefault();
-    const gem = event.dataTransfer.getData(GEM_DRAG_TYPE) as RegularGemType;
-    if (gem) {
-      onDropGem(gem);
-    }
-  };
-
+export function GemBasket({ gems, basketRef, isDropTarget = false, onRemoveGem, onClear }: GemBasketProps) {
   return (
     <div
-      onDragOver={handleDragOver}
-      onDrop={handleDrop}
+      ref={basketRef}
       className={[
         'min-h-16 rounded-xl border-2 border-dashed p-3 transition-colors',
-        gems.length > 0 ? 'border-amber-500/60 bg-amber-500/5' : 'border-slate-600 bg-slate-800/50',
+        isDropTarget ? 'border-amber-400 bg-amber-500/15' : '',
+        !isDropTarget && gems.length > 0 ? 'border-amber-500/60 bg-amber-500/5' : '',
+        !isDropTarget && gems.length === 0 ? 'border-slate-600 bg-slate-800/50' : '',
       ].join(' ')}
     >
       <div className="mb-2 flex items-center justify-between">
