@@ -1,3 +1,4 @@
+import { PointValue } from '../points/PointValue';
 import type { GamePhase } from '../../types/game';
 
 interface GameHeaderProps {
@@ -42,8 +43,20 @@ export function GameHeader({
         >
           {isHumanTurn ? '내 턴' : '봇 턴'}
         </span>
-        <span className="text-[10px] text-slate-500">
-          {humanScore} : {botScore}
+        <span className="flex items-center gap-1 text-[10px] text-slate-500">
+          <PointValue
+            value={humanScore}
+            className="font-semibold text-slate-300"
+            iconClassName="size-2.5 text-amber-300"
+            hideZero={false}
+          />
+          <span aria-hidden>:</span>
+          <PointValue
+            value={botScore}
+            className="font-semibold text-slate-300"
+            iconClassName="size-2.5 text-amber-300"
+            hideZero={false}
+          />
         </span>
       </div>
     </header>

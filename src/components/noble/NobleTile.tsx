@@ -1,5 +1,5 @@
-import { GemChip } from '../gems/GemChip';
 import { formatNobleName, GEM_STYLES } from '../../constants/theme';
+import { PointValue } from '../points/PointValue';
 import type { Noble } from '../../types/noble';
 import { REGULAR_GEM_TYPES } from '../../types/gems';
 
@@ -14,7 +14,11 @@ export function NobleTile({ noble }: NobleTileProps) {
         <span className="truncate text-[10px] font-semibold text-purple-200">
           {formatNobleName(noble.id)}
         </span>
-        <span className="text-xs font-bold text-amber-300">{noble.points}pt</span>
+        <PointValue
+          value={noble.points}
+          className="text-xs font-bold text-amber-300"
+          hideZero={false}
+        />
       </div>
       <div className="flex flex-wrap gap-0.5">
         {REGULAR_GEM_TYPES.filter((gem) => (noble.requirements[gem] ?? 0) > 0).map((gem) => {

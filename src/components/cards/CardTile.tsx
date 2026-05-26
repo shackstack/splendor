@@ -3,6 +3,7 @@ import {
   GEM_LABELS,
   GEM_STYLES,
 } from "../../constants/theme";
+import { PointValue } from "../points/PointValue";
 import type { Card } from "../../types/card";
 import { REGULAR_GEM_TYPES } from "../../types/gems";
 
@@ -40,43 +41,49 @@ export function CardTile({
         className={[
           "relative z-[1] flex w-full flex-col overflow-hidden rounded-lg border-2 text-left shadow-md",
           levelStyle.border,
-          selected ? "ring-2 ring-white ring-offset-2 ring-offset-slate-900" : "",
+          selected
+            ? "ring-2 ring-white ring-offset-2 ring-offset-slate-900"
+            : "",
           onClick ? "active:scale-[0.98]" : "",
           compact ? "min-h-[112px] min-w-[100px]" : "min-w-[80px]",
         ].join(" ")}
       >
-      <div
-        className={`flex items-center justify-between px-2 py-1 ${levelStyle.header} text-white`}
-      >
-        <span className="text-[10px] font-bold">{levelStyle.label}</span>
-        <span className="text-xs font-bold">{card.points}pt</span>
-      </div>
-
-      <div className="flex flex-1 flex-col gap-1 bg-slate-800 p-2">
-        <div className="flex items-center gap-1">
-          <span
-            className={`inline-flex h-5 w-5 items-center justify-center rounded-full text-[10px] font-bold ${bonusStyle.bg} ${bonusStyle.text}`}
-          >
-            {GEM_LABELS[card.bonus].slice(0, 1)}
-          </span>
-          <span className="text-[10px] text-slate-400">보너스</span>
+        <div
+          className={`flex items-center justify-between px-2 py-1 ${levelStyle.header} text-white`}
+        >
+          <span className="text-[10px] font-bold">{levelStyle.label}</span>
+          <PointValue
+            value={card.points}
+            className="text-xs font-bold"
+            iconClassName="size-3 text-amber-200"
+          />
         </div>
 
-        <div className="flex flex-wrap gap-0.5">
-          {REGULAR_GEM_TYPES.filter((gem) => (card.cost[gem] ?? 0) > 0).map(
-            (gem) => {
-              const style = GEM_STYLES[gem];
-              return (
-                <span
-                  key={gem}
-                  className={`rounded px-1 py-0.5 text-[10px] font-semibold ${style.bg} ${style.text}`}
-                >
-                  {card.cost[gem]}
-                </span>
-              );
-            }
-          )}
-        </div>
+        <div className="flex flex-1 flex-col gap-1 bg-slate-800 p-2">
+          <div className="flex items-center gap-1">
+            <span
+              className={`inline-flex h-5 w-5 items-center justify-center rounded-full text-[10px] font-bold ${bonusStyle.bg} ${bonusStyle.text}`}
+            >
+              {GEM_LABELS[card.bonus].slice(0, 1)}
+            </span>
+            <span className="text-[10px] text-slate-400">보너스</span>
+          </div>
+
+          <div className="flex flex-wrap gap-0.5">
+            {REGULAR_GEM_TYPES.filter((gem) => (card.cost[gem] ?? 0) > 0).map(
+              (gem) => {
+                const style = GEM_STYLES[gem];
+                return (
+                  <span
+                    key={gem}
+                    className={`rounded px-1 py-0.5 text-[10px] font-semibold ${style.bg} ${style.text}`}
+                  >
+                    {card.cost[gem]}
+                  </span>
+                );
+              }
+            )}
+          </div>
         </div>
       </Component>
     </div>

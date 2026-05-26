@@ -1,3 +1,4 @@
+import { PointValue } from '../points/PointValue';
 import type { GameState } from '../../types/game';
 
 interface GameOverModalProps {
@@ -22,14 +23,28 @@ export function GameOverModal({ state, humanId, onRestart }: GameOverModalProps)
               className="flex items-center justify-between rounded-lg bg-slate-900/60 px-3 py-2"
             >
               <span className="text-sm text-slate-200">{player.name}</span>
-              <span className="text-sm font-bold text-white">{player.score}pt</span>
+              <PointValue
+                value={player.score}
+                className="text-sm font-bold text-white"
+                hideZero={false}
+              />
             </div>
           ))}
         </div>
 
         <p className="mt-4 text-center text-base font-semibold text-amber-300">
           {isWinner ? '승리!' : '패배...'}
-          {human && ` (${human.score}pt)`}
+          {human && (
+            <>
+              {' ('}
+              <PointValue
+                value={human.score}
+                className="inline-flex font-semibold text-amber-300"
+                hideZero={false}
+              />
+              )
+            </>
+          )}
         </p>
 
         {state.winnerIds && state.winnerIds.length > 1 && (

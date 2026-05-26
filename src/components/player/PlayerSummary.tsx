@@ -1,3 +1,4 @@
+import { PointValue } from '../points/PointValue';
 import type { PlayerState } from '../../types/player';
 
 interface PlayerSummaryProps {
@@ -24,7 +25,11 @@ export function PlayerSummary({ player, isActive = false }: PlayerSummaryProps) 
         )}
       </div>
       <div className="flex items-center gap-3 text-xs text-slate-400">
-        <span className="font-bold text-white">{player.score}pt</span>
+        <PointValue
+          value={player.score}
+          className="font-bold text-white"
+          hideZero={false}
+        />
         <span>카드 {player.purchasedCards.length}</span>
         <span>예약 {player.reservedCards.length}</span>
         <span>귀족 {player.nobles.length}</span>
