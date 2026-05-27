@@ -2,6 +2,7 @@ import { CARD_LEVEL_STYLES, CARD_TILE_SIZE } from "../../constants/theme";
 import { getNetGemCost } from "../../game/logic/player";
 import { GemCountBadge, GemIcon } from "../gems/GemIcon";
 import { PointValue } from "../points/PointValue";
+import { CARD_ART } from "../../assets/cards";
 import type { Card } from "../../types/card";
 import type { RegularGemCounts } from "../../types/gems";
 import { REGULAR_GEM_TYPES } from "../../types/gems";
@@ -25,6 +26,7 @@ export function CardTile({
   const levelStyle = CARD_LEVEL_STYLES[card.level];
   const Component = onClick ? "button" : "div";
   const showPurchasableGlow = purchasable && !selected;
+  const costGems = REGULAR_GEM_TYPES.filter((gem) => (card.cost[gem] ?? 0) > 0);
 
   return (
     <div className="relative shrink-0">
@@ -41,17 +43,17 @@ export function CardTile({
           "relative z-[1] flex flex-col overflow-hidden rounded-lg border-2 text-left shadow-md",
           CARD_TILE_SIZE.className,
           levelStyle.border,
-          selected
-            ? "ring-2 ring-white ring-offset-2 ring-offset-slate-900"
-            : "",
+          selected ? "ring-2 ring-white ring-offset-2 ring-offset-slate-900" : "",
           onClick ? "active:scale-[0.98]" : "",
         ].join(" ")}
       >
-        <div
-          className={`flex items-center justify-between px-2 py-1 ${levelStyle.header} text-white`}
-        >
+        {/* 헤더: 정령 등급 + 보너스 정령석 + 점수 */}
+        <div className={`flex shrink-0 items-center justify-between px-2 py-1 ${levelStyle.header} text-white`}>
           <div className="flex items-center gap-1">
             <GemIcon gem={card.bonus} size="sm" />
+            <span className="text-[9px] font-semibold opacity-80">
+              {levelStyle.label}
+            </span>
           </div>
           <PointValue
             value={card.points}
@@ -60,26 +62,44 @@ export function CardTile({
           />
         </div>
 
-        <div className="flex min-h-0 flex-1 flex-col gap-1 overflow-hidden bg-slate-800 p-2">
-          <div className="flex w-fit flex-col items-start gap-0.5">
-            {REGULAR_GEM_TYPES.filter((gem) => (card.cost[gem] ?? 0) > 0).map(
-              (gem) => {
-                const original = card.cost[gem] ?? 0;
-                const discounted = netCost ? (netCost[gem] ?? 0) : original;
+        {/* 마법진 아트 + 비용 오버레이 */}
+        <div className="relative min-h-0 flex-1 overflow-hidden">
+          {/* 마법진 배경 */}
+          <img
+            src={CARD_ART[card.bonus]}
+            alt=""
+            aria-hidden
+            className="absolute inset-0 h-full w-full object-cover"
+            draggable={false}
+          />
 
-                return (
-                  <GemCountBadge
-                    key={gem}
-                    gem={gem}
-                    count={original}
-                    discountedCount={
-                      netCost && discounted < original ? discounted : undefined
-                    }
-                  />
-                );
-              },
-            )}
-          </div>
+          {/* 비용 없을 때 중앙 정렬 여백 */}
+          {costGems.length === 0 && (
+            <div className="absolute inset-0 flex items-center justify-center">
+              <span className="text-[9px] font-semibold text-white/40">소환 무비용</span>
+            </div>
+          )}
+
+          {/* 하단 그라디언트 + 비용 배지 */}
+          {costGems.length > 0 && (
+            <>
+              <div className="absolute inset-x-0 bottom-0 h-4/5 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+              <div className="absolute inset-x-0 bottom-0 flex flex-col items-start gap-0.5 p-1.5">
+                {costGems.map((gem) => {
+                  const original   = card.cost[gem] ?? 0;
+                  const discounted = netCost ? (netCost[gem] ?? 0) : original;
+                  return (
+                    <GemCountBadge
+                      key={gem}
+                      gem={gem}
+                      count={original}
+                      discountedCount={netCost && discounted < original ? discounted : undefined}
+                    />
+                  );
+                })}
+              </div>
+            </>
+          )}
         </div>
       </Component>
     </div>

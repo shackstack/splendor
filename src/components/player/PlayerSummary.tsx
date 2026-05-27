@@ -30,9 +30,9 @@ export function PlayerSummary({ player, isActive = false }: PlayerSummaryProps) 
           className="font-bold text-white"
           hideZero={false}
         />
-        <span>카드 {player.purchasedCards.length}</span>
+        <span>정령 {player.purchasedCards.length}</span>
         <span>예약 {player.reservedCards.length}</span>
-        <span>귀족 {player.nobles.length}</span>
+        <span>신수 {player.nobles.length}</span>
       </div>
     </div>
   );

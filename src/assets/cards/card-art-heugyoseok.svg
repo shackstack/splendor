@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 90" width="100%" height="100%">
+  <defs>
+    <linearGradient id="hs-bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0c1a2e"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+    <radialGradient id="hs-glow" cx="50%" cy="45%" r="42%">
+      <stop offset="0%" stop-color="#0ea5e9" stop-opacity="0.4"/>
+      <stop offset="50%" stop-color="#1e3a5f" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#020617" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="hs-bottom-dim" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#020617" stop-opacity="0"/>
+      <stop offset="70%" stop-color="#020617" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#020617" stop-opacity="0.95"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="100%" height="100%" fill="url(#hs-bg)"/>
+
+  <circle cx="50" cy="45" r="40" fill="url(#hs-glow)"/>
+
+  <g stroke="#0ea5e9" stroke-width="0.35" fill="none" opacity="0.65">
+    <circle cx="50" cy="45" r="39"/>
+    <circle cx="50" cy="45" r="35" stroke-dasharray="4,2"/>
+    <circle cx="50" cy="45" r="26"/>
+    <circle cx="50" cy="45" r="16"/>
+  </g>
+
+  <g stroke="#334155" stroke-width="0.3" fill="none" opacity="0.5">
+    <line x1="50" y1="5" x2="50" y2="85"/>
+    <line x1="10" y1="45" x2="90" y2="45"/>
+    <line x1="20" y1="27.5" x2="80" y2="62.5"/>
+    <line x1="20" y1="62.5" x2="80" y2="27.5"/>
+    <line x1="32.5" y1="15" x2="67.5" y2="75"/>
+    <line x1="32.5" y1="75" x2="67.5" y2="15"/>
+  </g>
+
+  <g stroke="#0ea5e9" stroke-width="0.4" fill="none" opacity="0.5">
+    <path d="M 50,6 A 39,39 0 0,1 89,45 A 39,39 0 0,1 50,84" stroke-dasharray="1,2"/>
+    <path d="M 50,6 A 39,39 0 0,0 11,45 A 39,39 0 0,0 50,84" stroke-dasharray="1,2"/>
+    <path d="M 50,19 A 26,26 0 0,1 76,45 A 26,26 0 0,1 50,71"/>
+    <path d="M 50,19 A 26,26 0 0,0 24,45 A 26,26 0 0,0 50,71"/>
+  </g>
+
+  <g fill="#0ea5e9" opacity="0.7">
+    <circle cx="50" cy="8" r="0.8"/>
+    <circle cx="50" cy="82" r="0.8"/>
+    <circle cx="13" cy="45" r="0.8"/>
+    <circle cx="87" cy="45" r="0.8"/>
+    <circle cx="28.5" cy="23.5" r="0.6"/>
+    <circle cx="71.5" cy="23.5" r="0.6"/>
+    <circle cx="28.5" cy="66.5" r="0.6"/>
+    <circle cx="71.5" cy="66.5" r="0.6"/>
+  </g>
+
+  <text x="50" y="52" font-family="serif" font-size="22" font-weight="bold" fill="#0ea5e9" opacity="0.15" text-anchor="middle">水</text>
+
+  <rect x="0" y="60" width="100%" height="30" fill="url(#hs-bottom-dim)"/>
+</svg>

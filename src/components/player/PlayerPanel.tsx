@@ -45,7 +45,7 @@ export function PlayerPanel({
       <div className="mt-3 space-y-3">
         <div>
           <h3 className="mb-1 text-[10px] font-semibold uppercase tracking-wide text-slate-400">
-            보석
+            정령석
           </h3>
           <GemHand gems={player.gems} />
         </div>
@@ -59,7 +59,7 @@ export function PlayerPanel({
 
         <div>
           <h3 className="mb-1 text-[10px] font-semibold uppercase tracking-wide text-slate-400">
-            예약 카드
+            예약 정령
           </h3>
           <ReservedCards
             cards={player.reservedCards}
@@ -77,7 +77,7 @@ export function PlayerPanel({
         {player.nobles.length > 0 && (
           <div>
             <h3 className="mb-1 text-[10px] font-semibold uppercase tracking-wide text-slate-400">
-              귀족 ({player.nobles.length})
+              소환 신수 ({player.nobles.length})
             </h3>
             <OwnedNobles nobles={player.nobles} />
           </div>
@@ -86,7 +86,7 @@ export function PlayerPanel({
         {player.purchasedCards.length > 0 && (
           <div>
             <h3 className="mb-1 text-[10px] font-semibold uppercase tracking-wide text-slate-400">
-              구매 카드 ({player.purchasedCards.length})
+              소환 정령 ({player.purchasedCards.length})
             </h3>
             <PurchasedCards cards={player.purchasedCards} />
           </div>

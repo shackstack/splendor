@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 90" width="100%" height="100%">
+  <defs>
+    <linearGradient id="ho-bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#450a0a"/>
+      <stop offset="100%" stop-color="#1a0202"/>
+    </linearGradient>
+    <radialGradient id="ho-glow" cx="50%" cy="45%" r="45%">
+      <stop offset="0%" stop-color="#ef4444" stop-opacity="0.45"/>
+      <stop offset="50%" stop-color="#f97316" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#450a0a" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="ho-bottom-dim" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1a0202" stop-opacity="0"/>
+      <stop offset="70%" stop-color="#1a0202" stop-opacity="0.65"/>
+      <stop offset="100%" stop-color="#1a0202" stop-opacity="0.95"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="100%" height="100%" fill="url(#ho-bg)"/>
+
+  <circle cx="50" cy="45" r="38" fill="url(#ho-glow)"/>
+
+  <g stroke="#ef4444" stroke-width="0.3" fill="none" opacity="0.6">
+    <circle cx="50" cy="45" r="40"/>
+    <circle cx="50" cy="45" r="37" stroke-dasharray="5,1"/>
+    <circle cx="50" cy="45" r="24"/>
+    <circle cx="50" cy="45" r="14" stroke-dasharray="2,2"/>
+  </g>
+
+  <g stroke="#f97316" stroke-width="0.45" fill="none" opacity="0.75">
+    <polygon points="50,10 76,55 24,55"/>
+    <polygon points="50,80 24,35 76,35"/>
+  </g>
+
+  <g stroke="#ef4444" stroke-width="0.35" opacity="0.6">
+    <line x1="50" y1="2" x2="50" y2="88"/>
+    <line x1="7" y1="45" x2="93" y2="45"/>
+    <path d="M 50,2 L 53,15 L 50,10 L 47,15 Z" fill="#f97316" stroke="none"/>
+    <path d="M 50,88 L 53,75 L 50,80 L 47,75 Z" fill="#f97316" stroke="none"/>
+    <path d="M 7,45 L 20,42 L 15,45 L 20,48 Z" fill="#f97316" stroke="none"/>
+    <path d="M 93,45 L 80,42 L 85,45 L 80,48 Z" fill="#f97316" stroke="none"/>
+  </g>
+
+  <g stroke="#7f1d1d" stroke-width="0.5" fill="none" opacity="0.5">
+    <path d="M 10,5 L 3,5 L 3,12"/>
+    <path d="M 90,5 L 97,5 L 97,12"/>
+    <path d="M 10,85 L 3,85 L 3,78"/>
+    <path d="M 90,85 L 97,85 L 97,78"/>
+  </g>
+
+  <text x="50" y="52" font-family="serif" font-size="22" font-weight="bold" fill="#f97316" opacity="0.15" text-anchor="middle">火</text>
+
+  <rect x="0" y="60" width="100%" height="30" fill="url(#ho-bottom-dim)"/>
+</svg>

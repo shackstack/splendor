@@ -13,7 +13,7 @@ export function GemHand({ gems }: GemHandProps) {
   );
 
   if (owned.length === 0) {
-    return <p className="text-sm text-slate-500">보석 없음</p>;
+    return <p className="text-sm text-slate-500">정령석 없음</p>;
   }
 
   return (

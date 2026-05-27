@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 90" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bk-bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <radialGradient id="bk-glow" cx="50%" cy="45%" r="40%">
+      <stop offset="0%" stop-color="#f1f5f9" stop-opacity="0.35"/>
+      <stop offset="60%" stop-color="#94a3b8" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#94a3b8" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="bk-bottom-dim" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" stop-opacity="0"/>
+      <stop offset="70%" stop-color="#0f172a" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.95"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="100%" height="100%" fill="url(#bk-bg)"/>
+
+  <circle cx="50" cy="45" r="35" fill="url(#bk-glow)"/>
+
+  <g stroke="#e2e8f0" stroke-width="0.3" fill="none" opacity="0.6">
+    <circle cx="50" cy="45" r="40" stroke-dasharray="1,1"/>
+    <circle cx="50" cy="45" r="38"/>
+    <circle cx="50" cy="45" r="28"/>
+    <circle cx="50" cy="45" r="18" stroke-dasharray="2,1"/>
+  </g>
+
+  <g stroke="#f1f5f9" stroke-width="0.4" fill="none" opacity="0.75">
+    <polygon points="50,7 88,45 50,83 12,45"/>
+    <polygon points="23.3,18.3 76.7,18.3 76.7,71.7 23.3,71.7"/>
+  </g>
+
+  <g stroke="#94a3b8" stroke-width="0.3" opacity="0.7">
+    <line x1="50" y1="5" x2="50" y2="85"/>
+    <line x1="10" y1="45" x2="90" y2="45"/>
+    <line x1="21.7" y1="16.7" x2="78.3" y2="73.3"/>
+    <line x1="21.7" y1="73.3" x2="78.3" y2="16.7"/>
+    <circle cx="50" cy="5" r="1.2" fill="#1e293b" stroke="#e2e8f0" stroke-width="0.4"/>
+    <circle cx="50" cy="85" r="1.2" fill="#1e293b" stroke="#e2e8f0" stroke-width="0.4"/>
+    <circle cx="10" cy="45" r="1.2" fill="#1e293b" stroke="#e2e8f0" stroke-width="0.4"/>
+    <circle cx="90" cy="45" r="1.2" fill="#1e293b" stroke="#e2e8f0" stroke-width="0.4"/>
+  </g>
+
+  <g stroke="#94a3b8" stroke-width="0.5" fill="none" opacity="0.4">
+    <path d="M 5,12 L 5,5 L 12,5"/>
+    <path d="M 95,12 L 95,5 L 88,5"/>
+    <path d="M 5,78 L 5,85 L 12,85"/>
+    <path d="M 95,78 L 95,85 L 88,85"/>
+  </g>
+
+  <text x="50" y="52" font-family="serif" font-size="22" font-weight="bold" fill="#f1f5f9" opacity="0.13" text-anchor="middle">金</text>
+
+  <rect x="0" y="60" width="100%" height="30" fill="url(#bk-bottom-dim)"/>
+</svg>

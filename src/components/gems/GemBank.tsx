@@ -11,7 +11,7 @@ export function GemBank({ gems }: GemBankProps) {
   return (
     <section className="rounded-xl border border-slate-700 bg-slate-800/80 p-3">
       <h2 className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-400">
-        보석 뱅크
+        ✦ 정령석 저장고
       </h2>
       <div className="flex flex-wrap gap-2">
         {REGULAR_GEM_ORDER.map((gem) => (
