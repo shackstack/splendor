@@ -1,8 +1,8 @@
-import type { Ref } from 'react';
+import type { Ref } from "react";
 
-import { GemChip } from './GemChip';
-import { GEM_LABELS } from '../../constants/theme';
-import type { RegularGemType } from '../../types/gems';
+import { GemChip } from "./GemChip";
+import { GEM_LABELS } from "../../constants/theme";
+import type { RegularGemType } from "../../types/gems";
 
 interface GemBasketProps {
   gems: RegularGemType[];
@@ -10,18 +10,82 @@ interface GemBasketProps {
   isDropTarget?: boolean;
   onRemoveGem: (index: number) => void;
   onClear: () => void;
+  /** 가로 모드 액션바용 인라인 컴팩트 레이아웃 */
+  compact?: boolean;
 }
 
-export function GemBasket({ gems, basketRef, isDropTarget = false, onRemoveGem, onClear }: GemBasketProps) {
+export function GemBasket({
+  gems,
+  basketRef,
+  isDropTarget = false,
+  onRemoveGem,
+  onClear,
+  compact,
+}: GemBasketProps) {
+  /* ── 컴팩트 모드 (가로 모드 액션바) ─────────────────────────── */
+  if (compact) {
+    return (
+      <div
+        ref={basketRef}
+        className={[
+          "flex h-8 flex-1 items-center gap-1 rounded-lg border-2 border-dashed px-2 py-4",
+          isDropTarget ? "border-amber-400 bg-amber-500/15" : "",
+          !isDropTarget && gems.length > 0
+            ? "border-amber-500/60 bg-amber-500/5"
+            : "",
+          !isDropTarget && gems.length === 0
+            ? "border-slate-600 bg-slate-800/50"
+            : "",
+        ].join(" ")}
+      >
+        {gems.length === 0 ? (
+          <span className="text-[10px] text-slate-500">바구니</span>
+        ) : (
+          <>
+            <div className="flex flex-wrap gap-1">
+              {gems.map((gem, index) => (
+                <button
+                  key={`${gem}-${index}`}
+                  type="button"
+                  onClick={() => onRemoveGem(index)}
+                  className="transition-transform active:scale-95"
+                  title={`${GEM_LABELS[gem]} 제거`}
+                >
+                  <GemChip gem={gem} size="sm" showCount={false} selected />
+                </button>
+              ))}
+            </div>
+            <button
+              type="button"
+              onClick={onClear}
+              className="ml-auto shrink-0 text-sm font-bold text-slate-400 active:text-white"
+              title="바구니 비우기"
+            >
+              ×
+            </button>
+          </>
+        )}
+        {gems.length === 2 && gems[0] === gems[1] && (
+          <span className="ml-1 text-[9px] text-amber-300">×2</span>
+        )}
+      </div>
+    );
+  }
+
+  /* ── 기본 모드 ──────────────────────────────────────────────── */
   return (
     <div
       ref={basketRef}
       className={[
-        'min-h-16 rounded-xl border-2 border-dashed p-3 transition-colors',
-        isDropTarget ? 'border-amber-400 bg-amber-500/15' : '',
-        !isDropTarget && gems.length > 0 ? 'border-amber-500/60 bg-amber-500/5' : '',
-        !isDropTarget && gems.length === 0 ? 'border-slate-600 bg-slate-800/50' : '',
-      ].join(' ')}
+        "min-h-16 rounded-xl border-2 border-dashed p-3 transition-colors",
+        isDropTarget ? "border-amber-400 bg-amber-500/15" : "",
+        !isDropTarget && gems.length > 0
+          ? "border-amber-500/60 bg-amber-500/5"
+          : "",
+        !isDropTarget && gems.length === 0
+          ? "border-slate-600 bg-slate-800/50"
+          : "",
+      ].join(" ")}
     >
       <div className="mb-2 flex items-center justify-between">
         <p className="text-xs font-semibold text-slate-300">바구니</p>
@@ -37,7 +101,9 @@ export function GemBasket({ gems, basketRef, isDropTarget = false, onRemoveGem, 
       </div>
 
       {gems.length === 0 ? (
-        <p className="text-center text-xs text-slate-500">보석을 드래그하거나 탭해서 넣으세요</p>
+        <p className="text-center text-xs text-slate-500">
+          보석을 드래그하거나 탭해서 넣으세요
+        </p>
       ) : (
         <div className="flex flex-wrap gap-2">
           {gems.map((gem, index) => (
@@ -55,7 +121,9 @@ export function GemBasket({ gems, basketRef, isDropTarget = false, onRemoveGem, 
       )}
 
       {gems.length === 2 && gems[0] === gems[1] && (
-        <p className="mt-2 text-[10px] text-amber-300">{GEM_LABELS[gems[0]]} 2개 가져가기</p>
+        <p className="mt-2 text-[10px] text-amber-300">
+          {GEM_LABELS[gems[0]]} 2개 가져가기
+        </p>
       )}
     </div>
   );

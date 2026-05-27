@@ -31,18 +31,20 @@ export function GameHeader({
   const badge = PHASE_BADGES[phase];
 
   return (
-    <header className="flex items-center justify-between">
-      <div>
+    <header className="flex items-center justify-between gap-2 px-3 py-1.5">
+      {/* 좌: 게임 타이틀 + 라운드 */}
+      <div className="flex items-baseline gap-1.5">
         <h1
-          className="text-base font-bold tracking-tight text-white"
+          className="text-sm font-bold tracking-tight text-white"
           style={{ textShadow: '0 0 12px rgba(167,139,250,0.5)' }}
         >
           오행 소환
         </h1>
-        <p className="text-[11px] text-slate-500">{turnNumber}번째 소환식</p>
+        <p className="text-[10px] text-slate-500">{turnNumber}번째</p>
       </div>
 
-      <div className="flex flex-col items-end gap-1">
+      {/* 우: 뱃지 + 턴 + 점수 */}
+      <div className="flex items-center gap-2">
         {badge && (
           <span className={`rounded-full px-2 py-0.5 text-[10px] font-semibold ${badge.className}`}>
             {badge.text}
@@ -54,7 +56,7 @@ export function GameHeader({
             isHumanTurn ? 'text-amber-300' : 'text-slate-400',
           ].join(' ')}
         >
-          {isHumanTurn ? '✦ 소환사의 차례' : '봇 소환사의 차례'}
+          {isHumanTurn ? '✦ 소환사의 차례' : '봇의 차례'}
         </span>
         <div className="flex items-center gap-1 text-[10px] text-slate-500">
           <PointValue

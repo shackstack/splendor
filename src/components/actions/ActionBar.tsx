@@ -77,31 +77,31 @@ export function ActionBar({
   }, [gemAction, onAction, player.gems, selectionAction]);
 
   return (
-    <section className="border-t border-slate-700/60 bg-slate-950/95 p-4 backdrop-blur">
-      <h2 className="mb-3 text-xs font-semibold uppercase tracking-widest text-slate-500">
-        ✦ 정령석 획득
-      </h2>
+    /* 가로 모드 최적화: 단일 행 컴팩트 레이아웃 */
+    <section className="shrink-0 border-t border-slate-700/60 bg-slate-950/95 px-3 py-2 backdrop-blur">
+      <div className="flex items-center gap-3">
+        {/* 정령석 선택 + 바구니 (한 줄) */}
+        <GemPicker
+          compact
+          bank={state.gemBank}
+          selectedGems={selectedGems}
+          onAddGem={onAddGem}
+          onRemoveGem={onRemoveGem}
+          onClear={onClearGems}
+        />
 
-      <GemPicker
-        bank={state.gemBank}
-        selectedGems={selectedGems}
-        onAddGem={onAddGem}
-        onRemoveGem={onRemoveGem}
-        onClear={onClearGems}
-      />
-
-      <div className="mt-3 flex flex-wrap gap-2">
+        {/* 가져오기 버튼 */}
         <button
           type="button"
           disabled={!selectionAction}
           onClick={handleTakeGems}
           className={[
-            'min-h-11 flex-1 rounded-lg px-4 py-2 text-sm font-semibold text-white',
+            'shrink-0 rounded-lg px-4 py-2 text-sm font-semibold text-white',
             'bg-violet-700 disabled:opacity-40 active:bg-violet-800',
             'transition-colors',
           ].join(' ')}
         >
-          정령석 가져오기
+          가져오기
         </button>
       </div>
     </section>

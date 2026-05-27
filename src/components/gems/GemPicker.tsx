@@ -12,6 +12,8 @@ interface GemPickerProps {
   onAddGem: (gem: RegularGemType) => void;
   onRemoveGem: (index: number) => void;
   onClear: () => void;
+  /** 가로 모드 액션바용 단일 행 레이아웃 */
+  compact?: boolean;
 }
 
 export function GemPicker({
@@ -20,10 +22,59 @@ export function GemPicker({
   onAddGem,
   onRemoveGem,
   onClear,
+  compact,
 }: GemPickerProps) {
   const { basketRef, isOverBasket, getGemPointerHandlers, consumeSuppressClick } =
     useGemDragToBasket(onAddGem);
 
+  /* ── 컴팩트 모드 (가로 모드 단일 행) ────────────────────────── */
+  if (compact) {
+    return (
+      <div className="flex flex-1 items-center gap-2">
+        {/* 뱅크 젬 칩: shrink-0 + 줄바꿈 없음 → 절대 밀리거나 겹치지 않음 */}
+        <div className="flex shrink-0 gap-1.5">
+          {REGULAR_GEM_ORDER.map((gem) => {
+            const bankCount = getGemCount(bank, gem);
+            const canAdd    = canAddGemToBasket(selectedGems, gem, bank);
+            const disabled  = bankCount === 0 || !canAdd;
+            const pointerHandlers = disabled ? {} : getGemPointerHandlers(gem);
+
+            return (
+              <GemChip
+                key={gem}
+                gem={gem}
+                count={bankCount}
+                size="sm"
+                draggable={!disabled}
+                disabled={disabled}
+                onClick={
+                  disabled
+                    ? undefined
+                    : () => {
+                        if (consumeSuppressClick()) return;
+                        onAddGem(gem);
+                      }
+                }
+                {...pointerHandlers}
+              />
+            );
+          })}
+        </div>
+
+        {/* 바구니: 고정 높이로 layout shift 방지 */}
+        <GemBasket
+          compact
+          gems={selectedGems}
+          basketRef={basketRef}
+          isDropTarget={isOverBasket}
+          onRemoveGem={onRemoveGem}
+          onClear={onClear}
+        />
+      </div>
+    );
+  }
+
+  /* ── 기본 모드 ──────────────────────────────────────────────── */
   return (
     <div className="space-y-3">
       <div>
@@ -33,9 +84,8 @@ export function GemPicker({
         <div className="flex flex-wrap gap-3">
           {REGULAR_GEM_ORDER.map((gem) => {
             const bankCount = getGemCount(bank, gem);
-            const canAdd = canAddGemToBasket(selectedGems, gem, bank);
-            const disabled = bankCount === 0 || !canAdd;
-
+            const canAdd    = canAddGemToBasket(selectedGems, gem, bank);
+            const disabled  = bankCount === 0 || !canAdd;
             const pointerHandlers = disabled ? {} : getGemPointerHandlers(gem);
 
             return (

@@ -1,0 +1,10 @@
+{
+  "name": "오행 소환",
+  "short_name": "오행소환",
+  "description": "오행 정령석을 모아 신수를 소환하는 전략 카드 게임",
+  "display": "fullscreen",
+  "orientation": "landscape",
+  "background_color": "#0f0a1e",
+  "theme_color": "#0f0a1e",
+  "start_url": "/"
+}
