@@ -43,7 +43,7 @@ export function ReservedCards({
   }
 
   return (
-    <div className="flex gap-2 overflow-x-auto pb-1">
+    <div className="flex gap-2 overflow-x-auto px-1 py-2">
       {cards.map((card, index) => {
         const selection: CardSelection = { kind: 'reserved', index };
         const selected = isReservedSelected(selectedCard, index);
