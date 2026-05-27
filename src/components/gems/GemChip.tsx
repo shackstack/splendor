@@ -48,7 +48,7 @@ export function GemChip({
       onPointerUp={draggable && !disabled ? onPointerUp : undefined}
       onPointerCancel={draggable && !disabled ? onPointerCancel : undefined}
       className={[
-        "inline-flex items-center justify-center gap-0.5 rounded-full bg-slate-900/60 font-semibold text-white",
+        "inline-flex items-center justify-center gap-0.5 rounded-full bg-slate-700/60 font-semibold text-white",
         sizeClass,
         interactive && !disabled
           ? "cursor-grab active:cursor-grabbing active:scale-95"
