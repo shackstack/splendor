@@ -15,7 +15,7 @@ export function NobleRow({ nobles }: NobleRowProps) {
       <h2 className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-400">
         귀족
       </h2>
-      <div className="flex gap-2 overflow-x-auto pb-1">
+      <div className="flex gap-2 overflow-x-auto px-1 py-2">
         {nobles.map((noble) => (
           <NobleTile key={noble.id} noble={noble} />
         ))}

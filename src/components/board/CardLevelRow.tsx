@@ -1,6 +1,5 @@
 import { CardSlot } from "../cards/CardSlot";
 import { DeckPile } from "../cards/DeckPile";
-import { CARD_LEVEL_STYLES } from "../../constants/theme";
 import type { CardSelection } from "../../store/uiStore";
 import type { Action } from "../../types";
 import type { BoardSlot, Card, CardLevel } from "../../types/card";
@@ -48,7 +47,6 @@ export function CardLevelRow({
   playerBonuses,
   interactive,
 }: CardLevelRowProps) {
-  const style = CARD_LEVEL_STYLES[level];
   const deckSelection: CardSelection = { kind: "deck", level };
   const deckSelected = isSameSelection(selectedCard, deckSelection);
   const deckActions = deckSelected ? getCardActions(deckSelection) : null;

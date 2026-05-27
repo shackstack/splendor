@@ -1,5 +1,5 @@
 import { CardActionOverlay } from './CardActionOverlay';
-import { CARD_LEVEL_STYLES } from '../../constants/theme';
+import { CARD_LEVEL_STYLES, CARD_TILE_SIZE } from '../../constants/theme';
 import type { CardSelection } from '../../store/uiStore';
 import type { Action } from '../../types';
 import type { CardLevel } from '../../types/card';
@@ -36,7 +36,7 @@ export function DeckPile({
         onClick={onClick}
         disabled={count === 0}
         className={[
-          'flex min-h-[88px] min-w-[52px] flex-col items-center justify-center rounded-lg border-2',
+          `flex ${CARD_TILE_SIZE.heightClass} w-[52px] shrink-0 flex-col items-center justify-center rounded-lg border-2`,
           style.border,
           'bg-slate-800',
           count === 0 ? 'opacity-40' : '',

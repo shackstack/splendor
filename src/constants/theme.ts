@@ -19,6 +19,17 @@ export const GEM_STYLES: Record<GemType, { bg: string; text: string; ring: strin
   giok: { bg: 'bg-[#a78bfa]', text: 'text-white', ring: 'ring-violet-400' },
 };
 
+/** 공개·예약·구매 카드 타일 공통 크기 */
+export const CARD_TILE_SIZE = {
+  className: 'h-[118px] w-[100px]',
+  heightClass: 'h-[118px]',
+} as const;
+
+/** 귀족 타일 너비 */
+export const NOBLE_TILE_SIZE = {
+  className: 'w-[100px]',
+} as const;
+
 export const CARD_LEVEL_STYLES: Record<
   CardLevel,
   { border: string; header: string; label: string }

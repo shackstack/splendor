@@ -1,5 +1,6 @@
 import { CardActionOverlay } from './CardActionOverlay';
 import { CardTile } from './CardTile';
+import { CARD_TILE_SIZE } from '../../constants/theme';
 import type { CardSelection } from '../../store/uiStore';
 import type { Action } from '../../types';
 import type { Card } from '../../types/card';
@@ -32,7 +33,9 @@ export function CardSlot({
 }: CardSlotProps) {
   if (!card) {
     return (
-      <div className="flex min-h-[88px] min-w-[72px] items-center justify-center rounded-lg border border-dashed border-slate-600 bg-slate-800/40">
+      <div
+        className={`flex shrink-0 items-center justify-center rounded-lg border border-dashed border-slate-600 bg-slate-800/40 ${CARD_TILE_SIZE.className}`}
+      >
         <span className="text-xs text-slate-600">—</span>
       </div>
     );
@@ -44,8 +47,6 @@ export function CardSlot({
     <div className="relative shrink-0">
       <CardTile
         card={card}
-        compact
-        costColumn
         selected={selected}
         purchasable={purchasable}
         playerBonuses={playerBonuses}

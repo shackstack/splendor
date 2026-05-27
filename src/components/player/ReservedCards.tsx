@@ -54,7 +54,6 @@ export function ReservedCards({
           <div key={`${card.id}-${index}`} className="relative shrink-0">
             <CardTile
               card={card}
-              compact
               selected={selected}
               purchasable={interactive && !!canAffordCard?.(card)}
               playerBonuses={playerBonuses}
