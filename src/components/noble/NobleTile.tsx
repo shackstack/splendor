@@ -12,9 +12,10 @@ import { REGULAR_GEM_TYPES } from "../../types/gems";
 
 interface NobleTileProps {
   noble: Noble;
+  compact?: boolean;
 }
 
-export function NobleTile({ noble }: NobleTileProps) {
+export function NobleTile({ noble, compact = false }: NobleTileProps) {
   const name = NOBLE_NAMES[noble.id] ?? noble.id;
   const desc = NOBLE_DESCRIPTIONS[noble.id] ?? "";
   const colors = NOBLE_COLORS[noble.id] ?? {
@@ -34,7 +35,7 @@ export function NobleTile({ noble }: NobleTileProps) {
         NOBLE_TILE_SIZE.className,
         colors.border,
       ].join(" ")}
-      style={{ height: "130px" }}
+      style={{ height: compact ? "88px" : "130px" }}
     >
       {/* 신수 아트 배경 */}
       {art && (

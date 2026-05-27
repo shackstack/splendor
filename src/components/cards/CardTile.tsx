@@ -29,7 +29,7 @@ export function CardTile({
   const costGems = REGULAR_GEM_TYPES.filter((gem) => (card.cost[gem] ?? 0) > 0);
 
   return (
-    <div className="relative shrink-0">
+    <div className="relative shrink-0 overflow-hidden">
       {showPurchasableGlow && (
         <>
           <div className="animated-border-box-glow" aria-hidden />

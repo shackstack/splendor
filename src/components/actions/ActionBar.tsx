@@ -78,8 +78,8 @@ export function ActionBar({
 
   return (
     /* 가로 모드 최적화: 단일 행 컴팩트 레이아웃 */
-    <section className="shrink-0 border-t border-slate-700/60 bg-slate-950/95 px-3 py-2 backdrop-blur">
-      <div className="flex items-center gap-3">
+    <section className="min-w-0 shrink-0 overflow-hidden border-t border-slate-700/60 bg-slate-950/95 px-3 py-2 backdrop-blur">
+      <div className="flex min-w-0 items-center gap-3">
         {/* 정령석 선택 + 바구니 (한 줄) */}
         <GemPicker
           compact

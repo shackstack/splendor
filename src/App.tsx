@@ -14,7 +14,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-dvh w-full bg-slate-900 text-slate-100">
+    <div className="min-h-dvh w-full max-w-full overflow-x-hidden bg-slate-900 text-slate-100 landscape:h-full landscape:max-h-full landscape:overflow-hidden">
       {state ? <GameScreen /> : <StartScreen onStart={handleStart} />}
     </div>
   );

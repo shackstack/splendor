@@ -13,6 +13,7 @@ interface DeckPileProps {
   onDismiss?: () => void;
   onAction?: (action: Action) => void;
   reserveAction?: Action | null;
+  compact?: boolean;
 }
 
 export function DeckPile({
@@ -24,19 +25,22 @@ export function DeckPile({
   onDismiss,
   onAction,
   reserveAction,
+  compact = false,
 }: DeckPileProps) {
   const style = CARD_LEVEL_STYLES[level];
   const Component = onClick ? 'button' : 'div';
   const showOverlay = selected && selection && onDismiss && onAction;
 
   return (
-    <div className="relative shrink-0">
+    <div className={compact ? "relative h-full shrink-0" : "relative shrink-0"}>
       <Component
         type={onClick ? 'button' : undefined}
         onClick={onClick}
         disabled={count === 0}
         className={[
-          `flex ${CARD_TILE_SIZE.heightClass} w-[52px] shrink-0 flex-col items-center justify-center rounded-lg border-2`,
+          compact
+            ? 'flex h-full w-auto max-h-full aspect-[52/118] shrink-0 flex-col items-center justify-center rounded-lg border-2'
+            : `flex ${CARD_TILE_SIZE.heightClass} w-[52px] shrink-0 flex-col items-center justify-center rounded-lg border-2`,
           style.border,
           'bg-slate-800',
           count === 0 ? 'opacity-40' : '',

@@ -20,6 +20,7 @@ interface CardLevelRowProps {
   canAffordCard?: (card: Card) => boolean;
   playerBonuses?: RegularGemCounts;
   interactive: boolean;
+  compact?: boolean;
 }
 
 function isSameSelection(a: CardSelection | null, b: CardSelection): boolean {
@@ -46,15 +47,23 @@ export function CardLevelRow({
   canAffordCard,
   playerBonuses,
   interactive,
+  compact,
 }: CardLevelRowProps) {
   const deckSelection: CardSelection = { kind: "deck", level };
   const deckSelected = isSameSelection(selectedCard, deckSelection);
   const deckActions = deckSelected ? getCardActions(deckSelection) : null;
 
   return (
-    <div className="flex flex-col gap-1.5">
-      <div className="flex gap-2 overflow-x-auto py-2">
+    <div className={compact ? "flex min-h-0 flex-1 flex-col" : "flex flex-col gap-1.5"}>
+      <div
+        className={
+          compact
+            ? "flex h-full min-h-0 items-stretch gap-1.5 overflow-x-auto py-0.5"
+            : "flex gap-2 overflow-x-auto py-2"
+        }
+      >
         <DeckPile
+          compact={compact}
           level={level}
           count={deckCount}
           selected={deckSelected}
@@ -76,6 +85,7 @@ export function CardLevelRow({
           return (
             <CardSlot
               key={slotIndex}
+              compact={compact}
               card={slot.card}
               selected={selected}
               purchasable={

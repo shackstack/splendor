@@ -30,7 +30,7 @@ export function GemPicker({
   /* ── 컴팩트 모드 (가로 모드 단일 행) ────────────────────────── */
   if (compact) {
     return (
-      <div className="flex flex-1 items-center gap-2">
+      <div className="flex min-w-0 flex-1 items-center gap-2">
         {/* 뱅크 젬 칩: shrink-0 + 줄바꿈 없음 → 절대 밀리거나 겹치지 않음 */}
         <div className="flex shrink-0 gap-1.5">
           {REGULAR_GEM_ORDER.map((gem) => {

@@ -17,6 +17,7 @@ interface CardSlotProps {
   onAction?: (action: Action) => void;
   reserveAction?: Action | null;
   purchaseAction?: Action | null;
+  compact?: boolean;
 }
 
 export function CardSlot({
@@ -30,11 +31,17 @@ export function CardSlot({
   onAction,
   reserveAction,
   purchaseAction,
+  compact = false,
 }: CardSlotProps) {
   if (!card) {
     return (
       <div
-        className={`flex shrink-0 items-center justify-center rounded-lg border border-dashed border-slate-600 bg-slate-800/40 ${CARD_TILE_SIZE.className}`}
+        className={[
+          "flex shrink-0 items-center justify-center rounded-lg border border-dashed border-slate-600 bg-slate-800/40",
+          compact
+            ? "h-full w-auto max-h-full aspect-[100/118]"
+            : CARD_TILE_SIZE.className,
+        ].join(" ")}
       >
         <span className="text-xs text-slate-600">—</span>
       </div>
@@ -44,13 +51,14 @@ export function CardSlot({
   const showOverlay = selected && selection && onDismiss && onAction;
 
   return (
-    <div className="relative shrink-0">
+    <div className={compact ? "relative h-full shrink-0" : "relative shrink-0"}>
       <CardTile
         card={card}
         selected={selected}
         purchasable={purchasable}
         playerBonuses={playerBonuses}
         onClick={onClick}
+        compact={compact}
       />
       {showOverlay && (
         <CardActionOverlay

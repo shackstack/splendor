@@ -76,7 +76,7 @@ export function GameScreen() {
   );
 
   return (
-    <div className="relative flex h-dvh w-screen flex-col overflow-hidden">
+    <div className="relative flex h-dvh w-full max-w-full flex-col overflow-hidden">
 
       {/* ── 가로 모드 전용: 세로 모드 회전 안내 ─────────────────── */}
       <div className="absolute inset-0 z-50 hidden flex-col items-center justify-center gap-4 bg-slate-950 portrait:flex">
@@ -101,7 +101,7 @@ export function GameScreen() {
       )}
 
       {/* ── 메인 영역: 3열 레이아웃 ───────────────────────────── */}
-      <div className="flex min-h-0 flex-1 gap-1.5 p-1.5">
+      <div className="flex min-h-0 min-w-0 flex-1 gap-1.5 p-1.5">
 
         {/* 좌열: 봇 레일 */}
         <div className="flex w-[112px] shrink-0 flex-col">
@@ -114,7 +114,7 @@ export function GameScreen() {
         </div>
 
         {/* 중앙열: (저장고 + 신수) 같은 행 → 카드 보드 (스크롤) */}
-        <div className="min-h-0 flex-1 overflow-y-auto">
+        <div className="min-h-0 min-w-0 flex-1 overflow-x-hidden overflow-y-auto">
           <div className="flex flex-col gap-1.5">
             {/* 저장고 + 신수 같은 행 */}
             <div className="grid grid-cols-[auto_1fr] gap-1.5">

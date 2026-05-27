@@ -18,6 +18,8 @@ interface CardBoardProps {
   canAffordCard?: (card: Card) => boolean;
   playerBonuses?: RegularGemCounts;
   interactive: boolean;
+  /** 가로 모드 게임 화면: 남은 높이에 카드 행 균등 배치 */
+  compact?: boolean;
 }
 
 export function CardBoard({
@@ -30,7 +32,34 @@ export function CardBoard({
   canAffordCard,
   playerBonuses,
   interactive,
+  compact,
 }: CardBoardProps) {
+  if (compact) {
+    return (
+      <section className="mt-1.5 flex min-h-0 flex-1 flex-col overflow-hidden rounded-xl border border-slate-700 bg-slate-800/80 p-1.5">
+        <div className="flex min-h-0 flex-1 flex-col gap-1">
+          {[...CARD_LEVELS].reverse().map((level) => (
+            <CardLevelRow
+              key={level}
+              compact
+              level={level}
+              slots={state.board[level]}
+              deckCount={state.decks[level].length}
+              selectedCard={selectedCard}
+              onSelectCard={onSelectCard}
+              onDismiss={onDismissCard}
+              onAction={onAction}
+              getCardActions={getCardActions}
+              canAffordCard={canAffordCard}
+              playerBonuses={playerBonuses}
+              interactive={interactive}
+            />
+          ))}
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="rounded-xl border border-slate-700 bg-slate-800/80 p-3">
       <h2 className="mb-3 text-xs font-semibold uppercase tracking-wide text-slate-400">
