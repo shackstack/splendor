@@ -29,9 +29,16 @@ export function checkWinCondition(state: GameState): string | null {
 // phase === 'finished', 단독 1위 -> 해당 player id
 // phase === 'finished', 동점 + 카드 수 적은 플레이어 승리
 
+function nextTurnNumber(state: GameState, actorIndex: number): number {
+  const playerCount = state.players.length;
+  const completedRound = (actorIndex + 1) % playerCount === 0;
+  return completedRound ? state.turnNumber + 1 : state.turnNumber;
+}
+
 export function advanceTurn(state: GameState, actorIndex: number): GameState {
   const playerCount = state.players.length;
   const nextIndex = (actorIndex + 1) % playerCount;
+  const turnNumber = nextTurnNumber(state, actorIndex);
   let phase: GamePhase = state.phase;
 
   if (state.finalRoundTriggeredBy) {
@@ -44,7 +51,7 @@ export function advanceTurn(state: GameState, actorIndex: number): GameState {
         ...state,
         phase: 'finished',
         currentPlayerIndex: nextIndex,
-        turnNumber: state.turnNumber + 1,
+        turnNumber,
         winnerIds,
       };
     }
@@ -54,6 +61,6 @@ export function advanceTurn(state: GameState, actorIndex: number): GameState {
     ...state,
     phase,
     currentPlayerIndex: nextIndex,
-    turnNumber: state.turnNumber + 1,
+    turnNumber,
   };
 }
