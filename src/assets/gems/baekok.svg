@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <radialGradient id="baekok-base" cx="40%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="50%" stop-color="#e2e8f0"/>
+      <stop offset="100%" stop-color="#94a3b8"/>
+    </radialGradient>
+    <radialGradient id="baekok-shine" cx="35%" cy="30%" r="40%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="baekok-shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#64748b" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+  <!-- 백옥: 동글동글한 팔각형 (구슬/옥돌 느낌) -->
+  <polygon
+    points="32,6 46,10 58,22 58,42 46,54 32,58 18,54 6,42 6,22 18,10"
+    fill="url(#baekok-base)"
+    filter="url(#baekok-shadow)"
+  />
+  <!-- 내부 패싯 라인 -->
+  <polygon
+    points="32,13 42,17 50,25 50,39 42,47 32,51 22,47 14,39 14,25 22,17"
+    fill="none"
+    stroke="#cbd5e1"
+    stroke-width="1"
+    opacity="0.7"
+  />
+  <!-- 중앙 상단 삼각형 패싯 -->
+  <polygon points="32,13 42,17 32,28 22,17" fill="none" stroke="#cbd5e1" stroke-width="0.8" opacity="0.5"/>
+  <polygon points="32,28 42,17 50,25" fill="none" stroke="#cbd5e1" stroke-width="0.8" opacity="0.5"/>
+  <polygon points="32,28 14,25 22,17" fill="none" stroke="#cbd5e1" stroke-width="0.8" opacity="0.5"/>
+  <!-- 광택 하이라이트 -->
+  <ellipse cx="26" cy="21" rx="7" ry="4" fill="url(#baekok-shine)" transform="rotate(-30 26 21)"/>
+  <!-- 작은 하이라이트 점 -->
+  <circle cx="22" cy="19" r="2" fill="#ffffff" opacity="0.8"/>
+</svg>

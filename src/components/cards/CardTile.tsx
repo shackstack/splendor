@@ -1,8 +1,5 @@
-import {
-  CARD_LEVEL_STYLES,
-  GEM_LABELS,
-  GEM_STYLES,
-} from "../../constants/theme";
+import { CARD_LEVEL_STYLES } from "../../constants/theme";
+import { GemCountBadge, GemIcon } from "../gems/GemIcon";
 import { PointValue } from "../points/PointValue";
 import type { Card } from "../../types/card";
 import { REGULAR_GEM_TYPES } from "../../types/gems";
@@ -12,6 +9,7 @@ interface CardTileProps {
   selected?: boolean;
   compact?: boolean;
   purchasable?: boolean;
+  costColumn?: boolean;
   onClick?: () => void;
 }
 
@@ -20,10 +18,10 @@ export function CardTile({
   selected = false,
   compact = false,
   purchasable = false,
+  costColumn = false,
   onClick,
 }: CardTileProps) {
   const levelStyle = CARD_LEVEL_STYLES[card.level];
-  const bonusStyle = GEM_STYLES[card.bonus];
   const Component = onClick ? "button" : "div";
   const showPurchasableGlow = purchasable && !selected;
 
@@ -52,11 +50,7 @@ export function CardTile({
           className={`flex items-center justify-between px-2 py-1 ${levelStyle.header} text-white`}
         >
           <div className="flex items-center gap-1">
-            <span
-              className={`inline-flex h-5 w-5 items-center justify-center rounded-full text-[10px] font-bold ${bonusStyle.bg} ${bonusStyle.text}`}
-            >
-              {GEM_LABELS[card.bonus].slice(0, 1)}
-            </span>
+            <GemIcon gem={card.bonus} size="sm" />
           </div>
           <PointValue
             value={card.points}
@@ -66,19 +60,11 @@ export function CardTile({
         </div>
 
         <div className="flex flex-1 flex-col gap-1 bg-slate-800 p-2">
-          <div className="flex flex-wrap gap-0.5">
+          <div className={costColumn ? "flex w-fit flex-col items-start gap-0.5" : "flex flex-wrap gap-0.5"}>
             {REGULAR_GEM_TYPES.filter((gem) => (card.cost[gem] ?? 0) > 0).map(
-              (gem) => {
-                const style = GEM_STYLES[gem];
-                return (
-                  <span
-                    key={gem}
-                    className={`rounded px-1 py-0.5 text-[10px] font-semibold ${style.bg} ${style.text}`}
-                  >
-                    {card.cost[gem]}
-                  </span>
-                );
-              }
+              (gem) => (
+                <GemCountBadge key={gem} gem={gem} count={card.cost[gem] ?? 0} />
+              ),
             )}
           </div>
         </div>

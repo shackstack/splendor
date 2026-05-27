@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="heugyoseok-base" x1="20%" y1="10%" x2="80%" y2="90%">
+      <stop offset="0%" stop-color="#64748b"/>
+      <stop offset="40%" stop-color="#334155"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="heugyoseok-facet1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#475569"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <radialGradient id="heugyoseok-shine" cx="30%" cy="25%" r="35%">
+      <stop offset="0%" stop-color="#94a3b8" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#94a3b8" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="heugyoseok-shadow">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+  <!-- 흑요석: 날카로운 다이아몬드형 (화산 유리) -->
+  <!-- 상단 크라운 -->
+  <polygon
+    points="32,5 52,24 32,32 12,24"
+    fill="url(#heugyoseok-base)"
+    filter="url(#heugyoseok-shadow)"
+  />
+  <!-- 하단 파빌리온 -->
+  <polygon
+    points="12,24 32,32 52,24 44,46 32,59 20,46"
+    fill="url(#heugyoseok-facet1)"
+    filter="url(#heugyoseok-shadow)"
+  />
+  <!-- 크라운 패싯들 -->
+  <polygon points="32,5 42,15 32,20 22,15" fill="#475569" opacity="0.6"/>
+  <polygon points="32,5 52,24 42,15" fill="#334155" opacity="0.8"/>
+  <polygon points="32,5 12,24 22,15" fill="#64748b" opacity="0.5"/>
+  <!-- 파빌리온 패싯들 -->
+  <polygon points="32,32 52,24 44,46" fill="#1e293b" opacity="0.7"/>
+  <polygon points="32,32 12,24 20,46" fill="#334155" opacity="0.5"/>
+  <polygon points="44,46 32,59 20,46 32,32" fill="#0f172a" opacity="0.6"/>
+  <!-- 거들(중앙선) -->
+  <line x1="12" y1="24" x2="52" y2="24" stroke="#475569" stroke-width="1" opacity="0.8"/>
+  <!-- 광택 -->
+  <ellipse cx="27" cy="17" rx="6" ry="3" fill="url(#heugyoseok-shine)" transform="rotate(-20 27 17)"/>
+  <circle cx="24" cy="15" r="1.5" fill="#94a3b8" opacity="0.7"/>
+</svg>

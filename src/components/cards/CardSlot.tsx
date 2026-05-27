@@ -42,6 +42,7 @@ export function CardSlot({
       <CardTile
         card={card}
         compact
+        costColumn
         selected={selected}
         purchasable={purchasable}
         onClick={onClick}

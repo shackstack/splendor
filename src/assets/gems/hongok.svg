@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="hongok-crown" x1="20%" y1="5%" x2="80%" y2="50%">
+      <stop offset="0%" stop-color="#fca5a5"/>
+      <stop offset="50%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#b91c1c"/>
+    </linearGradient>
+    <linearGradient id="hongok-pavilion" x1="20%" y1="40%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#dc2626"/>
+      <stop offset="100%" stop-color="#7f1d1d"/>
+    </linearGradient>
+    <radialGradient id="hongok-shine" cx="33%" cy="28%" r="35%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="hongok-shadow">
+      <feDropShadow dx="0" dy="3" stdDeviation="3.5" flood-color="#7f1d1d" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+  <!-- 홍옥(루비): 전통 브릴리언트 다이아몬드 컷 -->
+  <!-- 크라운 (상단) -->
+  <polygon
+    points="32,5 55,26 32,33 9,26"
+    fill="url(#hongok-crown)"
+    filter="url(#hongok-shadow)"
+  />
+  <!-- 파빌리온 (하단) -->
+  <polygon
+    points="9,26 32,33 55,26 32,59"
+    fill="url(#hongok-pavilion)"
+    filter="url(#hongok-shadow)"
+  />
+  <!-- 테이블(상단 중앙 평면) -->
+  <polygon points="32,13 46,20 32,26 18,20" fill="#fca5a5" opacity="0.5"/>
+  <!-- 크라운 패싯 -->
+  <polygon points="32,5 46,20 32,13" fill="#f87171" opacity="0.3"/>
+  <polygon points="32,5 18,20 32,13" fill="#fca5a5" opacity="0.4"/>
+  <polygon points="32,5 55,26 46,20" fill="#ef4444" opacity="0.5"/>
+  <polygon points="32,5 9,26 18,20" fill="#fca5a5" opacity="0.3"/>
+  <polygon points="55,26 46,20 32,26 32,33" fill="#dc2626" opacity="0.4"/>
+  <polygon points="9,26 18,20 32,26 32,33" fill="#ef4444" opacity="0.3"/>
+  <!-- 파빌리온 패싯 -->
+  <polygon points="9,26 32,33 32,59" fill="#b91c1c" opacity="0.5"/>
+  <polygon points="55,26 32,33 32,59" fill="#7f1d1d" opacity="0.6"/>
+  <!-- 거들선 -->
+  <line x1="9" y1="26" x2="55" y2="26" stroke="#fca5a5" stroke-width="0.8" opacity="0.6"/>
+  <!-- 광택 -->
+  <ellipse cx="26" cy="19" rx="7" ry="4" fill="url(#hongok-shine)" transform="rotate(-20 26 19)"/>
+  <circle cx="23" cy="17" r="2" fill="#ffffff" opacity="0.85"/>
+</svg>

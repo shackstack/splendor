@@ -1,4 +1,5 @@
-import { formatNobleName, GEM_STYLES } from '../../constants/theme';
+import { formatNobleName } from '../../constants/theme';
+import { GemCountBadge } from '../gems/GemIcon';
 import { PointValue } from '../points/PointValue';
 import type { Noble } from '../../types/noble';
 import { REGULAR_GEM_TYPES } from '../../types/gems';
@@ -21,17 +22,9 @@ export function NobleTile({ noble }: NobleTileProps) {
         />
       </div>
       <div className="flex flex-wrap gap-0.5">
-        {REGULAR_GEM_TYPES.filter((gem) => (noble.requirements[gem] ?? 0) > 0).map((gem) => {
-          const style = GEM_STYLES[gem];
-          return (
-            <span
-              key={gem}
-              className={`rounded px-1 text-[10px] font-semibold ${style.bg} ${style.text}`}
-            >
-              {noble.requirements[gem]}
-            </span>
-          );
-        })}
+        {REGULAR_GEM_TYPES.filter((gem) => (noble.requirements[gem] ?? 0) > 0).map((gem) => (
+          <GemCountBadge key={gem} gem={gem} count={noble.requirements[gem] ?? 0} />
+        ))}
       </div>
     </div>
   );
