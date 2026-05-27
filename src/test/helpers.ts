@@ -6,9 +6,9 @@ export function makeTestCard(overrides: Partial<Card> = {}): Card {
   return {
     id: 'test-card-1',
     level: 1,
-    cost: { diamond: 1 },
+    cost: { baekok: 1 },
     points: 0,
-    bonus: 'sapphire',
+    bonus: 'heugyoseok',
     ...overrides,
   };
 }

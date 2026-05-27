@@ -10,7 +10,7 @@ import { shuffle } from './utils';
 
 function createInitialGemBank(playerCount: number): GemCounts {
   const perColor = getGemBankSize(playerCount);
-  const bank: GemCounts = { gold: 5 };
+  const bank: GemCounts = { giok: 5 };
   for (const gem of REGULAR_GEM_TYPES) {
     bank[gem] = perColor;
   }
@@ -46,5 +46,5 @@ export function initGame(playerCount: number): GameState {
 }
 // 단위 테스트:
 // initGame(2) -> players.length === 2, phase === 'playing', nobles.length === 3
-// initGame(4) -> gemBank.diamond === 7, board[1].length === 4
+// initGame(4) -> gemBank.baekok === 7, board[1].length === 4
 // initGame(1) -> Error

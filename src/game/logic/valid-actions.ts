@@ -35,7 +35,7 @@ export function getValidActions(state: GameState, playerId: string): Action[] {
   if (player.reservedCards.length < MAX_RESERVED_CARDS) {
     for (const level of CARD_LEVELS) {
       if (state.decks[level].length > 0) {
-        const goldIncoming = getGemCount(state.gemBank, 'gold') > 0 ? 1 : 0;
+        const goldIncoming = getGemCount(state.gemBank, 'giok') > 0 ? 1 : 0;
         if (currentGemTotal + goldIncoming <= MAX_GEMS_IN_HAND) {
           actions.push({ type: 'reserve_card', source: { kind: 'deck', level } });
         }
@@ -43,7 +43,7 @@ export function getValidActions(state: GameState, playerId: string): Action[] {
 
       state.board[level].forEach((slot, slotIndex) => {
         if (!slot.card) return;
-        const goldIncoming = getGemCount(state.gemBank, 'gold') > 0 ? 1 : 0;
+        const goldIncoming = getGemCount(state.gemBank, 'giok') > 0 ? 1 : 0;
         if (currentGemTotal + goldIncoming <= MAX_GEMS_IN_HAND) {
           actions.push({
             type: 'reserve_card',
@@ -83,6 +83,6 @@ export function getValidActions(state: GameState, playerId: string): Action[] {
 }
 // 단위 테스트:
 // 현재 턴이 아닌 playerId -> []
-// bank diamond >= 4 && 손패 8개 -> take_two_gems diamond 포함
+// bank baekok >= 4 && 손패 8개 -> take_two_gems baekok 포함
 // 예약 3장 -> reserve_card 없음
 // 구매 가능 카드 -> purchase_card 포함

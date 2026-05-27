@@ -2,21 +2,21 @@ import type { CardLevel } from '../types/card';
 import type { GemType, RegularGemType } from '../types/gems';
 
 export const GEM_LABELS: Record<GemType, string> = {
-  diamond: '다이아',
-  sapphire: '사파이',
-  emerald: '에메',
-  ruby: '루비',
-  onyx: '오닉스',
-  gold: '골드',
+  baekok: '백옥',
+  heugyoseok: '흑요석',
+  bijae: '비취',
+  hongok: '홍옥',
+  hwangok: '황옥',
+  giok: '기옥',
 };
 
 export const GEM_STYLES: Record<GemType, { bg: string; text: string; ring: string }> = {
-  diamond: { bg: 'bg-white', text: 'text-slate-800', ring: 'ring-slate-300' },
-  sapphire: { bg: 'bg-blue-500', text: 'text-white', ring: 'ring-blue-400' },
-  emerald: { bg: 'bg-emerald-500', text: 'text-white', ring: 'ring-emerald-400' },
-  ruby: { bg: 'bg-red-500', text: 'text-white', ring: 'ring-red-400' },
-  onyx: { bg: 'bg-slate-900', text: 'text-white', ring: 'ring-slate-600' },
-  gold: { bg: 'bg-amber-400', text: 'text-slate-900', ring: 'ring-amber-300' },
+  baekok: { bg: 'bg-[#e2e8f0]', text: 'text-slate-800', ring: 'ring-slate-300' },
+  heugyoseok: { bg: 'bg-[#475569]', text: 'text-white', ring: 'ring-slate-500' },
+  bijae: { bg: 'bg-[#4ade80]', text: 'text-slate-900', ring: 'ring-green-400' },
+  hongok: { bg: 'bg-[#f87171]', text: 'text-white', ring: 'ring-red-400' },
+  hwangok: { bg: 'bg-[#facc15]', text: 'text-slate-900', ring: 'ring-yellow-400' },
+  giok: { bg: 'bg-[#a78bfa]', text: 'text-white', ring: 'ring-violet-400' },
 };
 
 export const CARD_LEVEL_STYLES: Record<
@@ -41,11 +41,11 @@ export const CARD_LEVEL_STYLES: Record<
 };
 
 export const REGULAR_GEM_ORDER: RegularGemType[] = [
-  'diamond',
-  'sapphire',
-  'emerald',
-  'ruby',
-  'onyx',
+  'baekok',
+  'heugyoseok',
+  'bijae',
+  'hongok',
+  'hwangok',
 ];
 
 export function formatNobleName(id: string): string {

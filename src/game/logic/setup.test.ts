@@ -19,7 +19,7 @@ describe('initGame', () => {
     const state = initGame(4);
 
     expect(getGemBankSize(4)).toBe(7);
-    expect(state.gemBank.diamond).toBe(7);
+    expect(state.gemBank.baekok).toBe(7);
     expect(state.board[1]).toHaveLength(BOARD_SLOTS_PER_LEVEL);
   });
 

@@ -17,7 +17,7 @@ export function GemBank({ gems }: GemBankProps) {
         {REGULAR_GEM_ORDER.map((gem) => (
           <GemChip key={gem} gem={gem} count={getGemCount(gems, gem)} size="md" />
         ))}
-        <GemChip gem="gold" count={getGemCount(gems, 'gold')} size="md" />
+        <GemChip gem="giok" count={getGemCount(gems, 'giok')} size="md" />
       </div>
     </section>
   );

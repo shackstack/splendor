@@ -52,12 +52,12 @@ export function buildMinimumPayment(player: PlayerState, card: Card): GemCounts 
     goldNeeded += need - use;
   }
 
-  if (goldNeeded > getGemCount(player.gems, 'gold')) {
+  if (goldNeeded > getGemCount(player.gems, 'giok')) {
     return null;
   }
 
   if (goldNeeded > 0) {
-    payment.gold = goldNeeded;
+    payment.giok = goldNeeded;
   }
 
   return payment;
@@ -72,7 +72,7 @@ export function isValidPayment(player: PlayerState, card: Card, payment: GemCoun
     }
   }
 
-  let goldUsed = getGemCount(payment, 'gold');
+  let goldUsed = getGemCount(payment, 'giok');
   for (const gem of REGULAR_GEM_TYPES) {
     const need = netCost[gem] ?? 0;
     const paid = getGemCount(payment, gem);

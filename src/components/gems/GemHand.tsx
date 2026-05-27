@@ -8,7 +8,7 @@ interface GemHandProps {
 }
 
 export function GemHand({ gems }: GemHandProps) {
-  const owned = [...REGULAR_GEM_ORDER, 'gold' as const].filter(
+  const owned = [...REGULAR_GEM_ORDER, 'giok' as const].filter(
     (gem) => getGemCount(gems, gem) > 0,
   );
 

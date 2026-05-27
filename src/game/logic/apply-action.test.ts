@@ -19,26 +19,26 @@ function findPurchaseAction(state: ReturnType<typeof makeTestState>): Extract<Ac
 describe('applyAction', () => {
   it('보석 3개 가져오기 후 뱅크와 플레이어 보석 합계를 유지한다', () => {
     const state = makeTestState();
-    const action: Action = { type: 'take_three_gems', gems: ['diamond', 'sapphire', 'ruby'] };
+    const action: Action = { type: 'take_three_gems', gems: ['baekok', 'heugyoseok', 'hongok'] };
     const gemsBefore = getTotalGemsInGame(state);
 
     const nextState = applyAction(state, action);
 
     expect(getTotalGemsInGame(nextState)).toBe(gemsBefore);
     expect(nextState.players[0].gems).toEqual({
-      diamond: 1,
-      sapphire: 1,
-      ruby: 1,
+      baekok: 1,
+      heugyoseok: 1,
+      hongok: 1,
     });
-    expect(nextState.gemBank.diamond).toBe((state.gemBank.diamond ?? 0) - 1);
+    expect(nextState.gemBank.baekok).toBe((state.gemBank.baekok ?? 0) - 1);
   });
 
   it('카드 구매 후 purchasedCards가 증가하고 보드 슬롯을 리필한다', () => {
-    const purchasedCard = makeTestCard({ id: 'buy-me', cost: { diamond: 1 }, bonus: 'sapphire' });
-    const refillCard = makeTestCard({ id: 'refill-card', cost: { ruby: 2 }, bonus: 'emerald' });
+    const purchasedCard = makeTestCard({ id: 'buy-me', cost: { baekok: 1 }, bonus: 'heugyoseok' });
+    const refillCard = makeTestCard({ id: 'refill-card', cost: { hongok: 2 }, bonus: 'bijae' });
     const base = makeTestState();
     const state = makeTestState({
-      human: { gems: { diamond: 1 } },
+      human: { gems: { baekok: 1 } },
       boardCard: purchasedCard,
       decks: {
         1: [refillCard],
@@ -53,15 +53,15 @@ describe('applyAction', () => {
     expect(nextState.players[0].purchasedCards).toHaveLength(1);
     expect(nextState.players[0].purchasedCards[0].id).toBe('buy-me');
     expect(nextState.players[0].score).toBe(0);
-    expect(nextState.players[0].gems.diamond).toBeUndefined();
+    expect(nextState.players[0].gems.baekok).toBeUndefined();
     expect(nextState.board[1][0].card?.id).toBe('refill-card');
-    expect(nextState.gemBank.diamond).toBe((state.gemBank.diamond ?? 0) + 1);
+    expect(nextState.gemBank.baekok).toBe((state.gemBank.baekok ?? 0) + 1);
   });
 
   it('카드 구매 후 새 state에서만 플레이어 상태가 갱신된다', () => {
     const state = makeTestState({
-      human: { gems: { diamond: 1 } },
-      boardCard: makeTestCard({ id: 'buy-me', cost: { diamond: 1 } }),
+      human: { gems: { baekok: 1 } },
+      boardCard: makeTestCard({ id: 'buy-me', cost: { baekok: 1 } }),
     });
     const staleHuman = getHumanPlayer(state);
     const action = findPurchaseAction(state);
@@ -75,9 +75,9 @@ describe('applyAction', () => {
   });
 
   it('15점 도달 시 finalRoundTriggeredBy를 설정한다', () => {
-    const highValueCard = makeTestCard({ id: 'win-card', points: 15, cost: { diamond: 1 } });
+    const highValueCard = makeTestCard({ id: 'win-card', points: 15, cost: { baekok: 1 } });
     const state = makeTestState({
-      human: { gems: { diamond: 1 } },
+      human: { gems: { baekok: 1 } },
       boardCard: highValueCard,
     });
     const action = findPurchaseAction(state);
@@ -91,12 +91,12 @@ describe('applyAction', () => {
   it('유효하지 않은 행동은 상태를 변경하지 않는다', () => {
     const state = makeTestState({
       human: { gems: {} },
-      boardCard: makeTestCard({ cost: { diamond: 1 } }),
+      boardCard: makeTestCard({ cost: { baekok: 1 } }),
     });
     const invalidAction: Action = {
       type: 'purchase_card',
       source: { kind: 'board', level: 1, slotIndex: 0 },
-      payment: { diamond: 1 },
+      payment: { baekok: 1 },
     };
 
     const nextState = applyAction(state, invalidAction);
@@ -115,8 +115,8 @@ describe('getValidActions', () => {
 
   it('구매 가능한 카드가 있으면 purchase_card를 포함한다', () => {
     const state = makeTestState({
-      human: { gems: { diamond: 1 } },
-      boardCard: makeTestCard({ cost: { diamond: 1 } }),
+      human: { gems: { baekok: 1 } },
+      boardCard: makeTestCard({ cost: { baekok: 1 } }),
     });
 
     const actions = getValidActions(state, 'player-0');

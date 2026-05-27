@@ -99,7 +99,7 @@ function applyReserveCard(state: GameState, action: Extract<Action, { type: 'res
     nextState = { ...nextState, decks: drawn.decks };
   }
 
-  const goldGrant = getGemCount(nextState.gemBank, 'gold') > 0 ? { gold: 1 } : {};
+  const goldGrant = getGemCount(nextState.gemBank, 'giok') > 0 ? { giok: 1 } : {};
   const nextPlayer: PlayerState = {
     ...actor,
     reservedCards: [...actor.reservedCards, reservedCard],
@@ -107,7 +107,7 @@ function applyReserveCard(state: GameState, action: Extract<Action, { type: 'res
   };
 
   nextState = updatePlayerAtIndex(nextState, actorIndex, nextPlayer);
-  if (goldGrant.gold) {
+  if (goldGrant.giok) {
     nextState = {
       ...nextState,
       gemBank: subtractGemCounts(nextState.gemBank, goldGrant),

@@ -25,20 +25,20 @@ import type {
 import { GEM_TYPES } from './types';
 
 const GEM_LABELS: Record<GemType, string> = {
-  diamond: '다이아',
-  sapphire: '사파이',
-  emerald: '에메',
-  ruby: '루비',
-  onyx: '오닉스',
-  gold: '골드',
+  baekok: '백옥',
+  heugyoseok: '흑요석',
+  bijae: '비취',
+  hongok: '홍옥',
+  hwangok: '황옥',
+  giok: '기옥',
 };
 
 const BONUS_LABELS: Record<RegularGemType, string> = {
-  diamond: '다이아',
-  sapphire: '사파이',
-  emerald: '에메',
-  ruby: '루비',
-  onyx: '오닉스',
+  baekok: '백옥',
+  heugyoseok: '흑요석',
+  bijae: '비취',
+  hongok: '홍옥',
+  hwangok: '황옥',
 };
 
 function formatGemCounts(gems: GemCounts): string {
