@@ -1,12 +1,13 @@
-import { CardTile } from '../cards/CardTile';
-import { BonusSummary } from './BonusSummary';
-import { GemHand } from '../gems/GemHand';
-import { PlayerSummary } from './PlayerSummary';
-import { ReservedCards } from './ReservedCards';
-import type { CardSelection } from '../../store/uiStore';
-import type { Action } from '../../types';
-import type { Card } from '../../types/card';
-import type { PlayerState } from '../../types/player';
+import { CardTile } from "../cards/CardTile";
+import { NobleTile } from "../noble/NobleTile";
+import { BonusSummary } from "./BonusSummary";
+import { GemHand } from "../gems/GemHand";
+import { PlayerSummary } from "./PlayerSummary";
+import { ReservedCards } from "./ReservedCards";
+import type { CardSelection } from "../../store/uiStore";
+import type { Action } from "../../types";
+import type { Card } from "../../types/card";
+import type { PlayerState } from "../../types/player";
 
 interface PlayerPanelProps {
   player: PlayerState;
@@ -69,14 +70,32 @@ export function PlayerPanel({
           />
         </div>
 
+        {player.nobles.length > 0 && (
+          <div>
+            <h3 className="mb-1 text-[10px] font-semibold uppercase tracking-wide text-slate-400">
+              귀족 ({player.nobles.length})
+            </h3>
+            <div className="flex gap-1 overflow-x-auto pb-1">
+              {player.nobles.map((noble) => (
+                <div key={noble.id} className="shrink-0 scale-90">
+                  <NobleTile noble={noble} />
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
         {player.purchasedCards.length > 0 && (
           <div>
             <h3 className="mb-1 text-[10px] font-semibold uppercase tracking-wide text-slate-400">
               구매 카드 ({player.purchasedCards.length})
             </h3>
             <div className="flex gap-1 overflow-x-auto pb-1">
-              {player.purchasedCards.slice(-6).map((card, index) => (
-                <div key={`${card.id}-${index}`} className="w-[56px] shrink-0 scale-90">
+              {player.purchasedCards.map((card, index) => (
+                <div
+                  key={`${card.id}-${index}`}
+                  className="w-[56px] shrink-0 scale-90"
+                >
                   <CardTile card={card} compact />
                 </div>
               ))}
