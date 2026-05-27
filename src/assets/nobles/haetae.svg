@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 80" fill="none">
+  <defs>
+    <radialGradient id="ht-bg" cx="50%" cy="45%" r="70%">
+      <stop offset="0%" stop-color="#164e63"/>
+      <stop offset="100%" stop-color="#0c2340"/>
+    </radialGradient>
+    <radialGradient id="ht-glow" cx="50%" cy="40%" r="45%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="100" height="80" fill="url(#ht-bg)"/>
+  <rect width="100" height="80" fill="url(#ht-glow)"/>
+
+  <!-- 해태(獬豸): 정의 수호 — 외뿔 사자 -->
+  <!-- 몸통 -->
+  <ellipse cx="50" cy="54" rx="22" ry="16" fill="#0e7490" opacity="0.7"/>
+  <ellipse cx="50" cy="54" rx="18" ry="13" fill="#0891b2" opacity="0.5"/>
+  <!-- 비늘/털 패턴 -->
+  <path d="M32,50 C34,46 38,44 42,46" stroke="#67e8f9" stroke-width="1" fill="none" opacity="0.5"/>
+  <path d="M36,56 C38,52 42,50 46,52" stroke="#67e8f9" stroke-width="1" fill="none" opacity="0.5"/>
+  <path d="M58,50 C60,46 64,44 66,48" stroke="#67e8f9" stroke-width="1" fill="none" opacity="0.5"/>
+  <path d="M54,56 C56,52 60,50 64,52" stroke="#67e8f9" stroke-width="1" fill="none" opacity="0.5"/>
+
+  <!-- 다리 -->
+  <rect x="32" y="64" width="7" height="14" rx="3.5" fill="#0e7490"/>
+  <rect x="44" y="66" width="7" height="12" rx="3.5" fill="#0e7490"/>
+  <rect x="49" y="66" width="7" height="12" rx="3.5" fill="#0e7490"/>
+  <rect x="61" y="64" width="7" height="14" rx="3.5" fill="#0e7490"/>
+  <!-- 발굽/발톱 -->
+  <path d="M32,77 L34,80 L37,77 L39,80" stroke="#22d3ee" stroke-width="1.2" fill="none"/>
+  <path d="M61,77 L63,80 L66,77 L68,80" stroke="#22d3ee" stroke-width="1.2" fill="none"/>
+
+  <!-- 목 -->
+  <ellipse cx="44" cy="44" rx="9" ry="12" fill="#0891b2" opacity="0.8"/>
+
+  <!-- 갈기 -->
+  <path d="M36,38 C30,32 26,24 28,16 C32,22 34,30 36,36" fill="#0e7490" opacity="0.7"/>
+  <path d="M38,36 C34,28 32,20 36,12 C38,18 38,26 40,34" fill="#06b6d4" opacity="0.6"/>
+  <path d="M42,34 C40,26 42,18 46,12 C46,18 44,26 44,32" fill="#22d3ee" opacity="0.6"/>
+  <path d="M52,34 C54,26 56,18 54,12 C54,18 52,26 52,32" fill="#22d3ee" opacity="0.6"/>
+  <path d="M56,36 C60,28 62,20 60,12 C58,18 56,26 56,34" fill="#06b6d4" opacity="0.6"/>
+  <path d="M60,38 C64,32 68,24 66,16 C62,22 60,30 58,36" fill="#0e7490" opacity="0.7"/>
+
+  <!-- 머리 -->
+  <ellipse cx="50" cy="28" rx="14" ry="12" fill="#0891b2"/>
+  <ellipse cx="50" cy="28" rx="11" ry="9" fill="#67e8f9" opacity="0.4"/>
+
+  <!-- 외뿔 (정의의 뿔) -->
+  <path d="M50,16 L48,6 L50,10 L52,6 Z" fill="#fbbf24"/>
+  <path d="M50,16 L49,8 L50,10 Z" fill="#fef9c3"/>
+  <!-- 뿔 광채 -->
+  <line x1="50" y1="5" x2="47" y2="2" stroke="#fbbf24" stroke-width="0.8" opacity="0.6"/>
+  <line x1="50" y1="5" x2="53" y2="2" stroke="#fbbf24" stroke-width="0.8" opacity="0.6"/>
+  <line x1="50" y1="5" x2="50" y2="1" stroke="#fff" stroke-width="0.8" opacity="0.5"/>
+
+  <!-- 눈 (정의의 눈빛) -->
+  <ellipse cx="43" cy="26" rx="5" ry="4" fill="#fef9c3"/>
+  <ellipse cx="57" cy="26" rx="5" ry="4" fill="#fef9c3"/>
+  <ellipse cx="43" cy="26" rx="3.5" ry="3.5" fill="#0c4a6e"/>
+  <ellipse cx="57" cy="26" rx="3.5" ry="3.5" fill="#0c4a6e"/>
+  <ellipse cx="43" cy="26" rx="2" ry="3" fill="#000"/>
+  <ellipse cx="57" cy="26" rx="2" ry="3" fill="#000"/>
+  <circle cx="43.5" cy="25" r="1" fill="#fff"/>
+  <circle cx="57.5" cy="25" r="1" fill="#fff"/>
+
+  <!-- 코 -->
+  <ellipse cx="50" cy="33" rx="5" ry="3.5" fill="#0e7490"/>
+  <circle cx="48" cy="32" r="1.2" fill="#164e63"/>
+  <circle cx="52" cy="32" r="1.2" fill="#164e63"/>
+</svg>

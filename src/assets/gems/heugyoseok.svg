@@ -1,46 +1,34 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
   <defs>
-    <linearGradient id="heugyoseok-base" x1="20%" y1="10%" x2="80%" y2="90%">
+    <radialGradient id="hs-core" cx="38%" cy="32%" r="65%">
       <stop offset="0%" stop-color="#64748b"/>
-      <stop offset="40%" stop-color="#334155"/>
-      <stop offset="100%" stop-color="#0f172a"/>
-    </linearGradient>
-    <linearGradient id="heugyoseok-facet1" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#475569"/>
-      <stop offset="100%" stop-color="#1e293b"/>
-    </linearGradient>
-    <radialGradient id="heugyoseok-shine" cx="30%" cy="25%" r="35%">
+      <stop offset="50%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </radialGradient>
+    <radialGradient id="hs-shine" cx="30%" cy="25%" r="35%">
       <stop offset="0%" stop-color="#94a3b8" stop-opacity="0.8"/>
       <stop offset="100%" stop-color="#94a3b8" stop-opacity="0"/>
     </radialGradient>
-    <filter id="heugyoseok-shadow">
-      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#000000" flood-opacity="0.6"/>
+    <filter id="hs-shadow">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#000" flood-opacity="0.6"/>
     </filter>
   </defs>
-  <!-- 흑요석: 날카로운 다이아몬드형 (화산 유리) -->
-  <!-- 상단 크라운 -->
-  <polygon
-    points="32,5 52,24 32,32 12,24"
-    fill="url(#heugyoseok-base)"
-    filter="url(#heugyoseok-shadow)"
-  />
-  <!-- 하단 파빌리온 -->
-  <polygon
-    points="12,24 32,32 52,24 44,46 32,59 20,46"
-    fill="url(#heugyoseok-facet1)"
-    filter="url(#heugyoseok-shadow)"
-  />
-  <!-- 크라운 패싯들 -->
-  <polygon points="32,5 42,15 32,20 22,15" fill="#475569" opacity="0.6"/>
-  <polygon points="32,5 52,24 42,15" fill="#334155" opacity="0.8"/>
-  <polygon points="32,5 12,24 22,15" fill="#64748b" opacity="0.5"/>
-  <!-- 파빌리온 패싯들 -->
-  <polygon points="32,32 52,24 44,46" fill="#1e293b" opacity="0.7"/>
-  <polygon points="32,32 12,24 20,46" fill="#334155" opacity="0.5"/>
-  <polygon points="44,46 32,59 20,46 32,32" fill="#0f172a" opacity="0.6"/>
-  <!-- 거들(중앙선) -->
-  <line x1="12" y1="24" x2="52" y2="24" stroke="#475569" stroke-width="1" opacity="0.8"/>
+  <!-- 水(수) 정령석: 물방울 형태 — 아래로 뾰족한 다이아몬드 -->
+  <!-- 상단 둥근 부분 -->
+  <path d="M32,5 C20,5 10,15 10,27 C10,40 20,52 32,59 C44,52 54,40 54,27 C54,15 44,5 32,5 Z"
+        fill="url(#hs-core)" filter="url(#hs-shadow)"/>
+  <!-- 내부 광택 레이어 -->
+  <path d="M32,11 C23,11 16,19 16,29 C16,40 23,50 32,56 C41,50 48,40 48,29 C48,19 41,11 32,11 Z"
+        fill="none" stroke="#334155" stroke-width="0.8" opacity="0.6"/>
+  <!-- 패싯 라인 -->
+  <line x1="32" y1="5" x2="32" y2="59" stroke="#475569" stroke-width="0.7" opacity="0.3"/>
+  <line x1="10" y1="27" x2="54" y2="27" stroke="#475569" stroke-width="0.7" opacity="0.3"/>
+  <line x1="18" y1="13" x2="46" y2="47" stroke="#334155" stroke-width="0.6" opacity="0.25"/>
+  <line x1="46" y1="13" x2="18" y2="47" stroke="#334155" stroke-width="0.6" opacity="0.25"/>
+  <!-- 水 한자 -->
+  <text x="32" y="36" text-anchor="middle" font-size="16" font-weight="bold"
+        fill="#64748b" opacity="0.4" font-family="serif">水</text>
   <!-- 광택 -->
-  <ellipse cx="27" cy="17" rx="6" ry="3" fill="url(#heugyoseok-shine)" transform="rotate(-20 27 17)"/>
-  <circle cx="24" cy="15" r="1.5" fill="#94a3b8" opacity="0.7"/>
+  <ellipse cx="24" cy="18" rx="7" ry="4" fill="url(#hs-shine)" transform="rotate(-25 24 18)"/>
+  <circle cx="22" cy="16" r="2" fill="#94a3b8" opacity="0.7"/>
 </svg>

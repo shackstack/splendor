@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 80" fill="none">
+  <defs>
+    <radialGradient id="bw-bg" cx="50%" cy="45%" r="70%">
+      <stop offset="0%" stop-color="#881337"/>
+      <stop offset="100%" stop-color="#4a0519"/>
+    </radialGradient>
+    <radialGradient id="bw-glow" cx="50%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#fb7185" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#fb7185" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="100" height="80" fill="url(#bw-bg)"/>
+  <rect width="100" height="80" fill="url(#bw-glow)"/>
+
+  <!-- 봉황(鳳凰): 불사 재생 — 다채로운 긴 꼬리 -->
+  <!-- 무지개 꼬리 깃털 -->
+  <path d="M50,50 C46,58 38,64 30,76" stroke="#fbbf24" stroke-width="2" fill="none" opacity="0.8"/>
+  <path d="M50,50 C48,60 44,68 40,80" stroke="#f97316" stroke-width="2" fill="none" opacity="0.8"/>
+  <path d="M50,50 C50,60 50,70 50,80" stroke="#ef4444" stroke-width="2.5" fill="none" opacity="0.9"/>
+  <path d="M50,50 C52,60 56,68 60,80" stroke="#22c55e" stroke-width="2" fill="none" opacity="0.8"/>
+  <path d="M50,50 C54,58 62,64 70,76" stroke="#3b82f6" stroke-width="2" fill="none" opacity="0.8"/>
+  <path d="M50,50 C44,60 34,68 26,78" stroke="#a78bfa" stroke-width="1.5" fill="none" opacity="0.7"/>
+  <path d="M50,50 C56,60 66,68 74,78" stroke="#fb923c" stroke-width="1.5" fill="none" opacity="0.7"/>
+  <!-- 꼬리 끝 눈 모양 장식 -->
+  <ellipse cx="30" cy="76" rx="3" ry="4" fill="#fbbf24" opacity="0.6"/>
+  <ellipse cx="50" cy="79" rx="3" ry="4" fill="#ef4444" opacity="0.6"/>
+  <ellipse cx="70" cy="76" rx="3" ry="4" fill="#3b82f6" opacity="0.6"/>
+
+  <!-- 날개 -->
+  <path d="M50,34 C40,26 24,20 12,26 C20,30 28,32 36,38 C26,34 14,40 12,50 C18,46 28,44 40,48"
+        fill="#fb7185" opacity="0.8"/>
+  <path d="M50,34 C42,24 28,16 14,18 C22,24 32,26 40,34"
+        fill="#fda4af" opacity="0.5"/>
+  <path d="M50,34 C60,26 76,20 88,26 C80,30 72,32 64,38 C74,34 86,40 88,50 C82,46 72,44 60,48"
+        fill="#fb7185" opacity="0.8"/>
+  <path d="M50,34 C58,24 72,16 86,18 C78,24 68,26 60,34"
+        fill="#fda4af" opacity="0.5"/>
+
+  <!-- 몸통 -->
+  <ellipse cx="50" cy="42" rx="8" ry="11" fill="#fda4af"/>
+  <ellipse cx="50" cy="42" rx="5" ry="8" fill="#fef2f2"/>
+
+  <!-- 머리 -->
+  <circle cx="50" cy="26" r="8" fill="#fda4af"/>
+  <circle cx="50" cy="26" r="6" fill="#fef2f2"/>
+  <!-- 화려한 볏 -->
+  <path d="M50,18 C46,12 44,6 46,2 C48,6 49,10 50,14" fill="#fbbf24" opacity="0.9"/>
+  <path d="M50,18 C50,12 50,6 52,2 C52,6 51,10 50,14" fill="#f97316" opacity="0.8"/>
+  <path d="M50,18 C54,12 56,6 54,2 C52,6 51,10 50,14" fill="#ef4444" opacity="0.8"/>
+  <path d="M50,18 C42,14 36,12 34,8 C38,10 44,14 48,16" fill="#3b82f6" opacity="0.7"/>
+  <path d="M50,18 C58,14 64,12 66,8 C62,10 56,14 52,16" fill="#22c55e" opacity="0.7"/>
+  <!-- 눈 -->
+  <circle cx="45" cy="24" r="2.5" fill="#fbbf24"/>
+  <circle cx="55" cy="24" r="2.5" fill="#fbbf24"/>
+  <circle cx="45" cy="24" r="1.5" fill="#7c2d12"/>
+  <circle cx="55" cy="24" r="1.5" fill="#7c2d12"/>
+  <circle cx="45.4" cy="23.6" r="0.5" fill="#fff"/>
+  <circle cx="55.4" cy="23.6" r="0.5" fill="#fff"/>
+</svg>

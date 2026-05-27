@@ -1,51 +1,38 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
   <defs>
-    <radialGradient id="hwangok-base" cx="38%" cy="32%" r="65%">
-      <stop offset="0%" stop-color="#fef08a"/>
-      <stop offset="45%" stop-color="#facc15"/>
-      <stop offset="100%" stop-color="#a16207"/>
+    <radialGradient id="hw-core" cx="38%" cy="32%" r="65%">
+      <stop offset="0%" stop-color="#fef9c3"/>
+      <stop offset="45%" stop-color="#eab308"/>
+      <stop offset="100%" stop-color="#78350f"/>
     </radialGradient>
-    <linearGradient id="hwangok-side" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#fde047"/>
-      <stop offset="100%" stop-color="#854d0e"/>
-    </linearGradient>
-    <radialGradient id="hwangok-shine" cx="32%" cy="27%" r="36%">
+    <radialGradient id="hw-shine" cx="32%" cy="26%" r="36%">
       <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"/>
       <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
     </radialGradient>
-    <filter id="hwangok-shadow">
+    <filter id="hw-shadow">
       <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#92400e" flood-opacity="0.5"/>
     </filter>
   </defs>
-  <!-- 황옥: 쿠션 컷 (사각형 + 둥근 모서리 느낌의 팔각형) -->
-  <polygon
-    points="20,6 44,6 58,20 58,44 44,58 20,58 6,44 6,20"
-    fill="url(#hwangok-base)"
-    filter="url(#hwangok-shadow)"
-  />
-  <!-- 테이블(상단 중앙 평면) -->
-  <polygon
-    points="22,16 42,16 50,24 50,40 42,48 22,48 14,40 14,24"
-    fill="#fde047"
-    opacity="0.3"
-  />
-  <!-- 코너 패싯들 -->
-  <polygon points="20,6 22,16 14,24 6,20" fill="#fef08a" opacity="0.3"/>
-  <polygon points="44,6 42,16 50,24 58,20" fill="#fbbf24" opacity="0.4"/>
-  <polygon points="44,58 42,48 50,40 58,44" fill="#b45309" opacity="0.5"/>
-  <polygon points="20,58 22,48 14,40 6,44" fill="#d97706" opacity="0.3"/>
-  <!-- 상하 패싯 -->
-  <polygon points="20,6 44,6 42,16 22,16" fill="#fef9c3" opacity="0.4"/>
-  <polygon points="20,58 44,58 42,48 22,48" fill="#92400e" opacity="0.5"/>
-  <!-- 좌우 패싯 -->
-  <polygon points="6,20 14,24 14,40 6,44" fill="#fde047" opacity="0.3"/>
-  <polygon points="58,20 50,24 50,40 58,44" fill="#d97706" opacity="0.5"/>
-  <!-- 별 패싯 (중앙에서 뻗어나가는 라인) -->
-  <line x1="32" y1="16" x2="32" y2="48" stroke="#fbbf24" stroke-width="0.8" opacity="0.4"/>
-  <line x1="14" y1="32" x2="50" y2="32" stroke="#fbbf24" stroke-width="0.8" opacity="0.4"/>
-  <line x1="22" y1="16" x2="42" y2="48" stroke="#fbbf24" stroke-width="0.6" opacity="0.3"/>
-  <line x1="42" y1="16" x2="22" y2="48" stroke="#fbbf24" stroke-width="0.6" opacity="0.3"/>
+  <!-- 土(토) 정령석: 쿠션 컷 정사각형 (땅/바위 느낌) -->
+  <rect x="8" y="8" width="48" height="48" rx="10" ry="10"
+        fill="url(#hw-core)" filter="url(#hw-shadow)"/>
+  <!-- 내부 사각형 -->
+  <rect x="14" y="14" width="36" height="36" rx="6" ry="6"
+        fill="none" stroke="#fbbf24" stroke-width="0.9" opacity="0.5"/>
+  <!-- 패싯 라인 -->
+  <line x1="8" y1="8" x2="56" y2="56" stroke="#d97706" stroke-width="0.7" opacity="0.25"/>
+  <line x1="56" y1="8" x2="8" y2="56" stroke="#d97706" stroke-width="0.7" opacity="0.25"/>
+  <line x1="32" y1="8" x2="32" y2="56" stroke="#fbbf24" stroke-width="0.7" opacity="0.3"/>
+  <line x1="8" y1="32" x2="56" y2="32" stroke="#fbbf24" stroke-width="0.7" opacity="0.3"/>
+  <!-- 코너 삼각형 패싯 -->
+  <polygon points="8,8 20,8 8,20" fill="#fef9c3" opacity="0.2"/>
+  <polygon points="56,8 44,8 56,20" fill="#d97706" opacity="0.2"/>
+  <polygon points="8,56 20,56 8,44" fill="#d97706" opacity="0.2"/>
+  <polygon points="56,56 44,56 56,44" fill="#78350f" opacity="0.3"/>
+  <!-- 土 한자 -->
+  <text x="32" y="38" text-anchor="middle" font-size="16" font-weight="bold"
+        fill="#d97706" opacity="0.35" font-family="serif">土</text>
   <!-- 광택 -->
-  <ellipse cx="26" cy="22" rx="8" ry="5" fill="url(#hwangok-shine)" transform="rotate(-25 26 22)"/>
-  <circle cx="23" cy="19" r="2.5" fill="#ffffff" opacity="0.8"/>
+  <ellipse cx="23" cy="20" rx="8" ry="5" fill="url(#hw-shine)" transform="rotate(-25 23 20)"/>
+  <circle cx="20" cy="18" r="2.5" fill="#ffffff" opacity="0.8"/>
 </svg>

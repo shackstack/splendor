@@ -13,7 +13,7 @@ export function NobleRow({ nobles }: NobleRowProps) {
   return (
     <section className="rounded-xl border border-slate-700 bg-slate-800/80 p-3">
       <h2 className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-400">
-        귀족
+        ✦ 신수 소환
       </h2>
       <div className="flex gap-2 overflow-x-auto px-1 py-2">
         {nobles.map((noble) => (

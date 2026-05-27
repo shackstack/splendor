@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 80" fill="none">
+  <defs>
+    <radialGradient id="hm-bg" cx="50%" cy="55%" r="65%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </radialGradient>
+    <radialGradient id="hm-glow" cx="50%" cy="60%" r="45%">
+      <stop offset="0%" stop-color="#334155" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#334155" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="100" height="80" fill="url(#hm-bg)"/>
+  <rect width="100" height="80" fill="url(#hm-glow)"/>
+
+  <!-- 현무(玄武): 거북 + 뱀 -->
+  <!-- 물결 배경 -->
+  <path d="M0,65 Q25,58 50,65 Q75,72 100,65 L100,80 L0,80Z" fill="#0f172a" opacity="0.5"/>
+  <path d="M0,72 Q25,66 50,72 Q75,78 100,72 L100,80 L0,80Z" fill="#1e3a5f" opacity="0.4"/>
+
+  <!-- 거북 등딱지 -->
+  <ellipse cx="50" cy="50" rx="26" ry="20" fill="#1e3a5f" stroke="#475569" stroke-width="1.5"/>
+  <!-- 등딱지 육각형 패턴 -->
+  <polygon points="50,34 56,38 56,44 50,48 44,44 44,38" fill="none" stroke="#64748b" stroke-width="1" opacity="0.7"/>
+  <polygon points="50,40 56,44 56,50 50,54 44,50 44,44" fill="none" stroke="#64748b" stroke-width="1" opacity="0.7"/>
+  <polygon points="50,46 56,50 56,56 50,60 44,56 44,50" fill="none" stroke="#64748b" stroke-width="1" opacity="0.7"/>
+  <polygon points="44,37 50,41 50,47 44,51 38,47 38,41" fill="none" stroke="#475569" stroke-width="0.8" opacity="0.6"/>
+  <polygon points="56,37 62,41 62,47 56,51 50,47 50,41" fill="none" stroke="#475569" stroke-width="0.8" opacity="0.6"/>
+  <polygon points="38,44 44,48 44,54 38,58 32,54 32,48" fill="none" stroke="#475569" stroke-width="0.8" opacity="0.5"/>
+  <polygon points="62,44 68,48 68,54 62,58 56,54 56,48" fill="none" stroke="#475569" stroke-width="0.8" opacity="0.5"/>
+  <!-- 중앙 -->
+  <polygon points="50,40 56,44 56,50 50,54 44,50 44,44" fill="#334155" opacity="0.6"/>
+
+  <!-- 거북 머리 -->
+  <ellipse cx="50" cy="30" rx="7" ry="6" fill="#1e3a5f" stroke="#475569" stroke-width="1"/>
+  <ellipse cx="50" cy="30" rx="5" ry="4" fill="#334155"/>
+  <!-- 눈 -->
+  <circle cx="47" cy="29" r="1.8" fill="#0ea5e9"/>
+  <circle cx="53" cy="29" r="1.8" fill="#0ea5e9"/>
+  <circle cx="47" cy="29" r="0.9" fill="#0c4a6e"/>
+  <circle cx="53" cy="29" r="0.9" fill="#0c4a6e"/>
+  <circle cx="47.4" cy="28.6" r="0.4" fill="#fff" opacity="0.8"/>
+  <circle cx="53.4" cy="28.6" r="0.4" fill="#fff" opacity="0.8"/>
+
+  <!-- 거북 다리 -->
+  <ellipse cx="28" cy="46" rx="5" ry="3" fill="#1e3a5f" stroke="#475569" stroke-width="1" transform="rotate(-30 28 46)"/>
+  <ellipse cx="72" cy="46" rx="5" ry="3" fill="#1e3a5f" stroke="#475569" stroke-width="1" transform="rotate(30 72 46)"/>
+  <ellipse cx="30" cy="62" rx="5" ry="3" fill="#1e3a5f" stroke="#475569" stroke-width="1" transform="rotate(20 30 62)"/>
+  <ellipse cx="70" cy="62" rx="5" ry="3" fill="#1e3a5f" stroke="#475569" stroke-width="1" transform="rotate(-20 70 62)"/>
+
+  <!-- 뱀 (거북 주위를 감음) -->
+  <path d="M50,68 C38,72 24,68 18,58 C14,50 18,40 26,38 C20,44 20,54 26,58 C32,62 42,60 50,56"
+        stroke="#0ea5e9" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.9"/>
+  <path d="M50,68 C62,72 76,68 82,58 C86,50 82,40 74,38 C80,44 80,54 74,58 C68,62 58,60 50,56"
+        stroke="#38bdf8" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.8"/>
+  <!-- 뱀 머리 -->
+  <ellipse cx="18" cy="56" rx="5" ry="3" fill="#0ea5e9" transform="rotate(-20 18 56)"/>
+  <circle cx="16" cy="55" r="1" fill="#fff"/>
+  <circle cx="16" cy="55" r="0.5" fill="#000"/>
+  <!-- 뱀 혀 -->
+  <path d="M14,57 L11,56 M14,57 L11,58" stroke="#ef4444" stroke-width="0.8" stroke-linecap="round"/>
+</svg>

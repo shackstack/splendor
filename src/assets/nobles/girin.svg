@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 80" fill="none">
+  <defs>
+    <radialGradient id="gr-bg" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#4c1d95"/>
+      <stop offset="100%" stop-color="#1e1b4b"/>
+    </radialGradient>
+    <radialGradient id="gr-aura" cx="50%" cy="45%" r="55%">
+      <stop offset="0%" stop-color="#a78bfa" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#a78bfa" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="100" height="80" fill="url(#gr-bg)"/>
+  <rect width="100" height="80" fill="url(#gr-aura)"/>
+
+  <!-- 기린(麒麟): 오행의 조화 — 불꽃 갈기의 유니콘 사슴 -->
+  <!-- 오행 원소 광채 (5색) -->
+  <circle cx="50" cy="35" r="22" fill="none" stroke="#22c55e" stroke-width="0.8" opacity="0.3"/>
+  <circle cx="50" cy="35" r="26" fill="none" stroke="#ef4444" stroke-width="0.6" opacity="0.25"/>
+  <circle cx="50" cy="35" r="30" fill="none" stroke="#facc15" stroke-width="0.5" opacity="0.2"/>
+
+  <!-- 몸통 -->
+  <ellipse cx="50" cy="52" rx="18" ry="14" fill="#c4b5fd" opacity="0.7"/>
+  <ellipse cx="50" cy="52" rx="14" ry="11" fill="#ddd6fe" opacity="0.5"/>
+
+  <!-- 다리 -->
+  <rect x="36" y="60" width="5" height="16" rx="2.5" fill="#8b5cf6" opacity="0.8"/>
+  <rect x="44" y="62" width="5" height="14" rx="2.5" fill="#8b5cf6" opacity="0.8"/>
+  <rect x="51" y="62" width="5" height="14" rx="2.5" fill="#8b5cf6" opacity="0.8"/>
+  <rect x="59" y="60" width="5" height="16" rx="2.5" fill="#8b5cf6" opacity="0.8"/>
+  <!-- 발굽 -->
+  <ellipse cx="38.5" cy="76" rx="3.5" ry="2" fill="#fbbf24"/>
+  <ellipse cx="46.5" cy="76" rx="3.5" ry="2" fill="#fbbf24"/>
+  <ellipse cx="53.5" cy="76" rx="3.5" ry="2" fill="#fbbf24"/>
+  <ellipse cx="61.5" cy="76" rx="3.5" ry="2" fill="#fbbf24"/>
+
+  <!-- 목 -->
+  <path d="M42,52 C40,44 42,36 46,30" stroke="#c4b5fd" stroke-width="7" stroke-linecap="round" fill="none"/>
+  <path d="M42,52 C40,44 42,36 46,30" stroke="#ede9fe" stroke-width="4" stroke-linecap="round" fill="none"/>
+
+  <!-- 머리 -->
+  <ellipse cx="50" cy="24" rx="10" ry="8" fill="#c4b5fd"/>
+  <ellipse cx="50" cy="24" rx="7" ry="6" fill="#ede9fe"/>
+
+  <!-- 뿔 (기린 뿔 — 살 뿔) -->
+  <path d="M50,16 L50,8" stroke="#fbbf24" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="50" cy="7" r="2" fill="#fbbf24"/>
+  <circle cx="50" cy="7" r="1" fill="#fff"/>
+
+  <!-- 눈 -->
+  <circle cx="45" cy="22" r="2.5" fill="#fbbf24"/>
+  <circle cx="55" cy="22" r="2.5" fill="#fbbf24"/>
+  <circle cx="45" cy="22" r="1.5" fill="#1c1917"/>
+  <circle cx="55" cy="22" r="1.5" fill="#1c1917"/>
+  <circle cx="45.4" cy="21.6" r="0.5" fill="#fff"/>
+  <circle cx="55.4" cy="21.6" r="0.5" fill="#fff"/>
+
+  <!-- 불꽃 갈기 (오행 색) -->
+  <path d="M46,30 C40,25 34,22 30,16 C34,20 36,26 38,28" fill="#ef4444" opacity="0.7"/>
+  <path d="M46,30 C42,23 38,18 36,12 C40,16 42,22 44,27" fill="#f97316" opacity="0.6"/>
+  <path d="M46,30 C44,22 44,16 44,10 C46,14 46,20 47,26" fill="#fbbf24" opacity="0.6"/>
+  <path d="M54,30 C58,22 62,16 66,10 C62,14 60,20 57,26" fill="#22c55e" opacity="0.6"/>
+  <path d="M54,30 C60,23 66,18 70,12 C66,16 62,22 58,27" fill="#3b82f6" opacity="0.6"/>
+  <path d="M54,30 C62,25 68,22 72,16 C66,20 62,26 60,28" fill="#a78bfa" opacity="0.6"/>
+</svg>

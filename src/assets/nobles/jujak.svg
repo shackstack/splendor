@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 80" fill="none">
+  <defs>
+    <radialGradient id="jk-bg" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#7f1d1d"/>
+      <stop offset="100%" stop-color="#450a0a"/>
+    </radialGradient>
+    <radialGradient id="jk-glow" cx="50%" cy="45%" r="45%">
+      <stop offset="0%" stop-color="#f97316" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#f97316" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="100" height="80" fill="url(#jk-bg)"/>
+  <rect width="100" height="80" fill="url(#jk-glow)"/>
+
+  <!-- 주작(朱雀): 불사조 날개 펼침 -->
+  <!-- 불꽃 후광 -->
+  <ellipse cx="50" cy="42" rx="32" ry="28" fill="#dc2626" opacity="0.15"/>
+  <ellipse cx="50" cy="42" rx="22" ry="18" fill="#ef4444" opacity="0.2"/>
+
+  <!-- 왼쪽 날개 -->
+  <path d="M50,38 C42,30 28,22 14,28 C22,32 30,34 36,40 C28,36 16,38 10,46 C18,44 28,42 38,46 C30,44 20,50 18,60 C26,54 36,50 44,52"
+        fill="#f97316" opacity="0.85"/>
+  <path d="M50,38 C44,28 32,18 18,20 C26,26 34,28 40,36"
+        fill="#fbbf24" opacity="0.6"/>
+
+  <!-- 오른쪽 날개 (반전) -->
+  <path d="M50,38 C58,30 72,22 86,28 C78,32 70,34 64,40 C72,36 84,38 90,46 C82,44 72,42 62,46 C70,44 80,50 82,60 C74,54 64,50 56,52"
+        fill="#f97316" opacity="0.85"/>
+  <path d="M50,38 C56,28 68,18 82,20 C74,26 66,28 60,36"
+        fill="#fbbf24" opacity="0.6"/>
+
+  <!-- 몸통 -->
+  <ellipse cx="50" cy="44" rx="7" ry="10" fill="#fca5a5"/>
+  <ellipse cx="50" cy="44" rx="4" ry="7" fill="#fef2f2"/>
+
+  <!-- 머리 -->
+  <circle cx="50" cy="30" r="7" fill="#fca5a5"/>
+  <circle cx="50" cy="30" r="5" fill="#fef2f2"/>
+  <!-- 볏 -->
+  <path d="M50,23 L47,16 L50,19 L53,16 Z" fill="#f97316"/>
+  <path d="M50,23 L46,17 L50,20 Z" fill="#fbbf24"/>
+  <path d="M50,23 L54,17 L50,20 Z" fill="#fbbf24"/>
+  <!-- 눈 -->
+  <circle cx="47.5" cy="29" r="1.5" fill="#dc2626"/>
+  <circle cx="52.5" cy="29" r="1.5" fill="#dc2626"/>
+  <circle cx="47.5" cy="29" r="0.7" fill="#fff"/>
+  <circle cx="52.5" cy="29" r="0.7" fill="#fff"/>
+
+  <!-- 꼬리 불꽃 -->
+  <path d="M44,54 C40,60 34,66 30,76 C36,70 42,64 46,56" fill="#f97316" opacity="0.7"/>
+  <path d="M50,56 C50,64 48,72 46,80 C50,74 52,66 52,56" fill="#fbbf24" opacity="0.6"/>
+  <path d="M56,54 C60,60 66,66 70,76 C64,70 58,64 54,56" fill="#f97316" opacity="0.7"/>
+  <path d="M44,54 C38,62 32,70 28,80 C34,72 40,64 44,56" fill="#fca5a5" opacity="0.5"/>
+  <path d="M56,54 C62,62 68,70 72,80 C66,72 60,64 56,56" fill="#fca5a5" opacity="0.5"/>
+
+  <!-- 불꽃 파티클 -->
+  <circle cx="20" cy="35" r="1.5" fill="#fbbf24" opacity="0.7"/>
+  <circle cx="80" cy="35" r="1.5" fill="#fbbf24" opacity="0.7"/>
+  <circle cx="15" cy="55" r="1" fill="#f97316" opacity="0.5"/>
+  <circle cx="85" cy="55" r="1" fill="#f97316" opacity="0.5"/>
+</svg>

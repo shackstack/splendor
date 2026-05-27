@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 80" fill="none">
+  <defs>
+    <radialGradient id="hn-bg" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#78350f"/>
+      <stop offset="100%" stop-color="#431407"/>
+    </radialGradient>
+    <radialGradient id="hn-glow" cx="50%" cy="45%" r="50%">
+      <stop offset="0%" stop-color="#fbbf24" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#fbbf24" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="100" height="80" fill="url(#hn-bg)"/>
+  <rect width="100" height="80" fill="url(#hn-glow)"/>
+
+  <!-- 황룡(黃龍): 여의주를 품은 중앙 용 (정면) -->
+  <!-- 여의주 (중앙 빛남) -->
+  <circle cx="50" cy="40" r="14" fill="#fbbf24" opacity="0.15"/>
+  <circle cx="50" cy="40" r="10" fill="#fde047" opacity="0.2"/>
+  <circle cx="50" cy="40" r="7" fill="#fef9c3" opacity="0.3"/>
+
+  <!-- 용 몸통 (둥글게 감싼 형태) -->
+  <!-- 왼쪽 몸 -->
+  <path d="M50,40 C46,30 36,22 24,20 C18,26 20,36 28,40 C22,38 16,42 16,50 C16,58 22,64 30,64"
+        stroke="#facc15" stroke-width="7" stroke-linecap="round" fill="none" opacity="0.85"/>
+  <!-- 오른쪽 몸 -->
+  <path d="M50,40 C54,30 64,22 76,20 C82,26 80,36 72,40 C78,38 84,42 84,50 C84,58 78,64 70,64"
+        stroke="#facc15" stroke-width="7" stroke-linecap="round" fill="none" opacity="0.85"/>
+  <!-- 밝은 하이라이트 -->
+  <path d="M50,40 C46,30 36,22 24,20 C18,26 20,36 28,40"
+        stroke="#fef08a" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.6"/>
+  <path d="M50,40 C54,30 64,22 76,20 C82,26 80,36 72,40"
+        stroke="#fef08a" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.6"/>
+
+  <!-- 비늘 -->
+  <ellipse cx="36" cy="26" rx="3.5" ry="2" fill="#d97706" transform="rotate(-40 36 26)" opacity="0.8"/>
+  <ellipse cx="28" cy="32" rx="3.5" ry="2" fill="#d97706" transform="rotate(-20 28 32)" opacity="0.8"/>
+  <ellipse cx="64" cy="26" rx="3.5" ry="2" fill="#d97706" transform="rotate(40 64 26)" opacity="0.8"/>
+  <ellipse cx="72" cy="32" rx="3.5" ry="2" fill="#d97706" transform="rotate(20 72 32)" opacity="0.8"/>
+
+  <!-- 용 머리 (정면) -->
+  <ellipse cx="50" cy="12" rx="11" ry="9" fill="#facc15"/>
+  <ellipse cx="50" cy="12" rx="8" ry="7" fill="#fde047"/>
+  <!-- 뿔 -->
+  <path d="M44,6 L40,0 L46,5" fill="#d97706"/>
+  <path d="M56,6 L60,0 L54,5" fill="#d97706"/>
+  <!-- 눈 -->
+  <circle cx="44" cy="10" r="3" fill="#fef9c3"/>
+  <circle cx="56" cy="10" r="3" fill="#fef9c3"/>
+  <circle cx="44" cy="10" r="2" fill="#dc2626"/>
+  <circle cx="56" cy="10" r="2" fill="#dc2626"/>
+  <circle cx="44" cy="10" r="1" fill="#000"/>
+  <circle cx="56" cy="10" r="1" fill="#000"/>
+  <circle cx="44.4" cy="9.6" r="0.4" fill="#fff"/>
+  <circle cx="56.4" cy="9.6" r="0.4" fill="#fff"/>
+  <!-- 콧구멍 -->
+  <circle cx="47" cy="14" r="1" fill="#b45309" opacity="0.8"/>
+  <circle cx="53" cy="14" r="1" fill="#b45309" opacity="0.8"/>
+  <!-- 수염 -->
+  <path d="M42,15 C36,18 28,16 22,20" stroke="#fbbf24" stroke-width="1" fill="none" opacity="0.7"/>
+  <path d="M58,15 C64,18 72,16 78,20" stroke="#fbbf24" stroke-width="1" fill="none" opacity="0.7"/>
+
+  <!-- 꼬리 -->
+  <path d="M30,64 C26,70 28,76 32,78 C30,74 32,70 36,70" fill="#facc15" opacity="0.7"/>
+  <path d="M70,64 C74,70 72,76 68,78 C70,74 68,70 64,70" fill="#facc15" opacity="0.7"/>
+
+  <!-- 여의주 실제 -->
+  <circle cx="50" cy="40" r="5" fill="#fef9c3" stroke="#fbbf24" stroke-width="1"/>
+  <circle cx="48.5" cy="38.5" r="1.5" fill="#fff" opacity="0.7"/>
+</svg>
