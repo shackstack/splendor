@@ -4,6 +4,7 @@ import { CARD_LEVEL_STYLES } from "../../constants/theme";
 import type { CardSelection } from "../../store/uiStore";
 import type { Action } from "../../types";
 import type { BoardSlot, Card, CardLevel } from "../../types/card";
+import type { RegularGemCounts } from "../../types/gems";
 
 interface CardLevelRowProps {
   level: CardLevel;
@@ -18,6 +19,7 @@ interface CardLevelRowProps {
     purchaseAction: Action | null;
   };
   canAffordCard?: (card: Card) => boolean;
+  playerBonuses?: RegularGemCounts;
   interactive: boolean;
 }
 
@@ -43,6 +45,7 @@ export function CardLevelRow({
   onAction,
   getCardActions,
   canAffordCard,
+  playerBonuses,
   interactive,
 }: CardLevelRowProps) {
   const style = CARD_LEVEL_STYLES[level];
@@ -90,6 +93,7 @@ export function CardLevelRow({
               onAction={interactive ? onAction : undefined}
               reserveAction={actions?.reserveAction}
               purchaseAction={actions?.purchaseAction}
+              playerBonuses={playerBonuses}
             />
           );
         })}

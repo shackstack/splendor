@@ -7,6 +7,7 @@ import { ReservedCards } from "./ReservedCards";
 import type { CardSelection } from "../../store/uiStore";
 import type { Action } from "../../types";
 import type { Card } from "../../types/card";
+import type { RegularGemCounts } from "../../types/gems";
 import type { PlayerState } from "../../types/player";
 
 interface PlayerPanelProps {
@@ -21,6 +22,7 @@ interface PlayerPanelProps {
     purchaseAction: Action | null;
   };
   canAffordCard?: (card: Card) => boolean;
+  playerBonuses?: RegularGemCounts;
   interactive: boolean;
 }
 
@@ -33,6 +35,7 @@ export function PlayerPanel({
   onAction,
   getCardActions,
   canAffordCard,
+  playerBonuses,
   interactive,
 }: PlayerPanelProps) {
   return (
@@ -66,6 +69,7 @@ export function PlayerPanel({
             onAction={onAction}
             getCardActions={getCardActions}
             canAffordCard={canAffordCard}
+            playerBonuses={playerBonuses}
             interactive={interactive}
           />
         </div>

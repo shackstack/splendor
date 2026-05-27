@@ -1,7 +1,9 @@
 import { CARD_LEVEL_STYLES } from "../../constants/theme";
+import { getNetGemCost } from "../../game/logic/player";
 import { GemCountBadge, GemIcon } from "../gems/GemIcon";
 import { PointValue } from "../points/PointValue";
 import type { Card } from "../../types/card";
+import type { RegularGemCounts } from "../../types/gems";
 import { REGULAR_GEM_TYPES } from "../../types/gems";
 
 interface CardTileProps {
@@ -10,6 +12,7 @@ interface CardTileProps {
   compact?: boolean;
   purchasable?: boolean;
   costColumn?: boolean;
+  playerBonuses?: RegularGemCounts;
   onClick?: () => void;
 }
 
@@ -19,8 +22,10 @@ export function CardTile({
   compact = false,
   purchasable = false,
   costColumn = false,
+  playerBonuses,
   onClick,
 }: CardTileProps) {
+  const netCost = playerBonuses ? getNetGemCost(card, playerBonuses) : null;
   const levelStyle = CARD_LEVEL_STYLES[card.level];
   const Component = onClick ? "button" : "div";
   const showPurchasableGlow = purchasable && !selected;
@@ -62,9 +67,21 @@ export function CardTile({
         <div className="flex flex-1 flex-col gap-1 bg-slate-800 p-2">
           <div className={costColumn ? "flex w-fit flex-col items-start gap-0.5" : "flex flex-wrap gap-0.5"}>
             {REGULAR_GEM_TYPES.filter((gem) => (card.cost[gem] ?? 0) > 0).map(
-              (gem) => (
-                <GemCountBadge key={gem} gem={gem} count={card.cost[gem] ?? 0} />
-              ),
+              (gem) => {
+                const original = card.cost[gem] ?? 0;
+                const discounted = netCost ? (netCost[gem] ?? 0) : original;
+
+                return (
+                  <GemCountBadge
+                    key={gem}
+                    gem={gem}
+                    count={original}
+                    discountedCount={
+                      netCost && discounted < original ? discounted : undefined
+                    }
+                  />
+                );
+              },
             )}
           </div>
         </div>

@@ -29,15 +29,26 @@ export function GemIcon({ gem, size = 'md', className = '' }: GemIconProps) {
 interface GemCountBadgeProps {
   gem: RegularGemType;
   count: number;
+  discountedCount?: number;
 }
 
-export function GemCountBadge({ gem, count }: GemCountBadgeProps) {
+export function GemCountBadge({ gem, count, discountedCount }: GemCountBadgeProps) {
+  const hasDiscount =
+    discountedCount !== undefined && discountedCount < count;
+
   return (
     <span className="inline-flex w-fit shrink-0 items-center gap-0.5 rounded-md bg-slate-900/70 px-1 py-0.5">
       <GemIcon gem={gem} size="xs" />
-      <span className="text-[10px] font-bold leading-none text-white tabular-nums">
-        {count}
-      </span>
+      {hasDiscount ? (
+        <span className="inline-flex items-center gap-0.5 text-[10px] font-bold leading-none tabular-nums">
+          <span className="text-slate-400 line-through">{count}</span>
+          <span className="text-emerald-300">{discountedCount}</span>
+        </span>
+      ) : (
+        <span className="text-[10px] font-bold leading-none text-white tabular-nums">
+          {count}
+        </span>
+      )}
     </span>
   );
 }

@@ -3,6 +3,7 @@ import { CARD_LEVELS } from '../../game/logic/constants';
 import type { CardSelection } from '../../store/uiStore';
 import type { Action, GameState } from '../../types';
 import type { Card } from '../../types/card';
+import type { RegularGemCounts } from '../../types/gems';
 
 interface CardBoardProps {
   state: GameState;
@@ -15,6 +16,7 @@ interface CardBoardProps {
     purchaseAction: Action | null;
   };
   canAffordCard?: (card: Card) => boolean;
+  playerBonuses?: RegularGemCounts;
   interactive: boolean;
 }
 
@@ -26,6 +28,7 @@ export function CardBoard({
   onAction,
   getCardActions,
   canAffordCard,
+  playerBonuses,
   interactive,
 }: CardBoardProps) {
   return (
@@ -46,6 +49,7 @@ export function CardBoard({
             onAction={onAction}
             getCardActions={getCardActions}
             canAffordCard={canAffordCard}
+            playerBonuses={playerBonuses}
             interactive={interactive}
           />
         ))}

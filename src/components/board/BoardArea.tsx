@@ -4,6 +4,7 @@ import { NobleRow } from './NobleRow';
 import type { CardSelection } from '../../store/uiStore';
 import type { Action, GameState } from '../../types';
 import type { Card } from '../../types/card';
+import type { RegularGemCounts } from '../../types/gems';
 
 interface BoardAreaProps {
   state: GameState;
@@ -16,6 +17,7 @@ interface BoardAreaProps {
     purchaseAction: Action | null;
   };
   canAffordCard?: (card: Card) => boolean;
+  playerBonuses?: RegularGemCounts;
   interactive: boolean;
 }
 
@@ -27,6 +29,7 @@ export function BoardArea({
   onAction,
   getCardActions,
   canAffordCard,
+  playerBonuses,
   interactive,
 }: BoardAreaProps) {
   return (
@@ -41,6 +44,7 @@ export function BoardArea({
         onAction={onAction}
         getCardActions={getCardActions}
         canAffordCard={canAffordCard}
+        playerBonuses={playerBonuses}
         interactive={interactive}
       />
     </div>

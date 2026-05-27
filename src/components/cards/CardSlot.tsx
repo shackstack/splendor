@@ -3,11 +3,13 @@ import { CardTile } from './CardTile';
 import type { CardSelection } from '../../store/uiStore';
 import type { Action } from '../../types';
 import type { Card } from '../../types/card';
+import type { RegularGemCounts } from '../../types/gems';
 
 interface CardSlotProps {
   card: Card | null;
   selected?: boolean;
   purchasable?: boolean;
+  playerBonuses?: RegularGemCounts;
   selection?: CardSelection;
   onClick?: () => void;
   onDismiss?: () => void;
@@ -20,6 +22,7 @@ export function CardSlot({
   card,
   selected,
   purchasable = false,
+  playerBonuses,
   selection,
   onClick,
   onDismiss,
@@ -45,6 +48,7 @@ export function CardSlot({
         costColumn
         selected={selected}
         purchasable={purchasable}
+        playerBonuses={playerBonuses}
         onClick={onClick}
       />
       {showOverlay && (

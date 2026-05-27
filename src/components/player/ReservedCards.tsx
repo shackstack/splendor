@@ -3,10 +3,12 @@ import { CardTile } from '../cards/CardTile';
 import type { CardSelection } from '../../store/uiStore';
 import type { Action } from '../../types';
 import type { Card } from '../../types/card';
+import type { RegularGemCounts } from '../../types/gems';
 
 interface ReservedCardsProps {
   cards: Card[];
   selectedCard: CardSelection | null;
+  playerBonuses?: RegularGemCounts;
   onSelectCard?: (source: CardSelection) => void;
   onDismiss?: () => void;
   onAction?: (action: Action) => void;
@@ -33,6 +35,7 @@ export function ReservedCards({
   onAction,
   getCardActions,
   canAffordCard,
+  playerBonuses,
   interactive = false,
 }: ReservedCardsProps) {
   if (cards.length === 0) {
@@ -54,6 +57,7 @@ export function ReservedCards({
               compact
               selected={selected}
               purchasable={interactive && !!canAffordCard?.(card)}
+              playerBonuses={playerBonuses}
               onClick={
                 interactive && onSelectCard
                   ? () => onSelectCard(selection)

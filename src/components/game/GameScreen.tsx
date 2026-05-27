@@ -6,6 +6,7 @@ import { GameHeader } from './GameHeader';
 import { GameOverModal } from '../overlays/GameOverModal';
 import { PlayerPanel } from '../player/PlayerPanel';
 import { getHumanPlayer } from '../../game/logic/state-access';
+import { getBonusCounts } from '../../game/logic/player';
 import { useGameStore } from '../../store/gameStore';
 import { useUiStore } from '../../store/uiStore';
 import { getCardActions } from '../../utils/cardActions';
@@ -28,6 +29,7 @@ export function GameScreen() {
   const resetUi = useUiStore((s) => s.reset);
 
   const human = getHumanPlayer(state);
+  const humanBonuses = getBonusCounts(human);
   const bot = state.players.find((p) => p.isBot)!;
   const isHumanTurn =
     state.phase !== 'finished' && state.players[state.currentPlayerIndex].id === human.id;
@@ -102,6 +104,7 @@ export function GameScreen() {
           onAction={handleAction}
           getCardActions={resolveCardActions}
           canAffordCard={canAffordCard}
+          playerBonuses={humanBonuses}
           interactive={isHumanTurn}
         />
 
@@ -114,6 +117,7 @@ export function GameScreen() {
           onAction={handleAction}
           getCardActions={resolveCardActions}
           canAffordCard={canAffordCard}
+          playerBonuses={humanBonuses}
           interactive={isHumanTurn}
         />
       </div>
