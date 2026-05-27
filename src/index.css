@@ -50,6 +50,16 @@
   [role="button"] {
     touch-action: manipulation;
   }
+
+  /* 스크롤바 UI 숨김 (스크롤 동작은 유지) */
+  * {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  *::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 @layer components {
