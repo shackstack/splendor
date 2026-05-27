@@ -47,8 +47,9 @@ export function DeckPile({
           {style.label}
         </span>
         <span className="mt-1 text-lg font-bold text-slate-300">{count}</span>
+        <span className="mt-0.5 text-[9px] text-slate-600">장</span>
         {onClick && count > 0 && (
-          <span className="mt-0.5 text-[9px] text-slate-500">탭하여 예약</span>
+          <span className="mt-1 text-[9px] text-violet-400/70">예약</span>
         )}
       </Component>
       {showOverlay && (

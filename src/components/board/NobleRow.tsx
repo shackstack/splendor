@@ -11,7 +11,7 @@ export function NobleRow({ nobles }: NobleRowProps) {
   }
 
   return (
-    <section className="rounded-xl border border-slate-700 bg-slate-800/80 p-3">
+    <section className="rounded-xl border border-violet-800/40 bg-slate-900/70 p-3 backdrop-blur-sm">
       <h2 className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-400">
         ✦ 신수 소환
       </h2>

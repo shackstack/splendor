@@ -39,7 +39,7 @@ export function PlayerPanel({
   interactive,
 }: PlayerPanelProps) {
   return (
-    <section className="rounded-xl border border-slate-600 bg-slate-800 p-3 shadow-lg">
+    <section className="rounded-xl border border-slate-700/60 bg-slate-900/70 p-3 shadow-lg backdrop-blur-sm">
       <PlayerSummary player={player} isActive={isActive} />
 
       <div className="mt-3 space-y-3">

@@ -70,16 +70,16 @@ export function ActionBar({
     const incoming = getIncomingGemCount(selectionAction);
     if (getTotalGemCount(player.gems) + incoming > MAX_GEMS_IN_HAND) {
       toast({
-        message: '보석은 최대 10개까지 보유할 수 있습니다',
+        message: '정령석은 최대 10개까지 보유할 수 있습니다',
         type: 'error',
       });
     }
   }, [gemAction, onAction, player.gems, selectionAction]);
 
   return (
-    <section className="border-t border-slate-700 bg-slate-900/95 p-4 backdrop-blur">
-      <h2 className="mb-3 text-xs font-semibold uppercase tracking-wide text-slate-400">
-        보석 가져오기
+    <section className="border-t border-slate-700/60 bg-slate-950/95 p-4 backdrop-blur">
+      <h2 className="mb-3 text-xs font-semibold uppercase tracking-widest text-slate-500">
+        ✦ 정령석 획득
       </h2>
 
       <GemPicker
@@ -95,9 +95,13 @@ export function ActionBar({
           type="button"
           disabled={!selectionAction}
           onClick={handleTakeGems}
-          className="min-h-11 flex-1 rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white disabled:opacity-40 active:bg-blue-700"
+          className={[
+            'min-h-11 flex-1 rounded-lg px-4 py-2 text-sm font-semibold text-white',
+            'bg-violet-700 disabled:opacity-40 active:bg-violet-800',
+            'transition-colors',
+          ].join(' ')}
         >
-          보석 가져오기
+          정령석 가져오기
         </button>
       </div>
     </section>
