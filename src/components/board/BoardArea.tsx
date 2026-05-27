@@ -33,7 +33,7 @@ export function BoardArea({
   interactive,
 }: BoardAreaProps) {
   return (
-    <div className="flex flex-col gap-3">
+    <div className="flex flex-col gap-2">
       <GemBank gems={state.gemBank} />
       <NobleRow nobles={state.nobles} />
       <CardBoard

@@ -31,7 +31,7 @@ export function GameHeader({
   const badge = PHASE_BADGES[phase];
 
   return (
-    <header className="flex items-center justify-between border-b border-slate-700/60 pb-3">
+    <header className="flex items-center justify-between">
       <div>
         <h1
           className="text-base font-bold tracking-tight text-white"
